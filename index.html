@@ -2,713 +2,574 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>CA · FSL — Centro Acadêmico Faculdade Sírio-Libanês</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>CA·HSL — Centro Acadêmico</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
-/* -- RESET & VARS ----------------------------------- */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --navy:#08192e;--navy2:#0f2641;--navy3:#1a3a5c;
-  --gold:#c9a96e;--gold2:rgba(201,169,110,.18);--gold3:rgba(201,169,110,.08);
-  --cream:#f5f0e8;--cream2:#ede7d9;
-  --text:#1c2b3a;--muted:#6b7a8d;--light:#94a3b8;
-  --white:#fff;--bd:rgba(0,0,0,.07);--bd2:rgba(255,255,255,.07);
-  --rad:10px;--sw:252px;
-  --font-serif:'Cormorant Garamond',Georgia,serif;
-  --font-sans:'DM Sans',system-ui,sans-serif;
+  --gold:#c9a96e;--gold2:#e2c99a;--gold3:rgba(201,169,110,.13);
+  --cream:#f5f0e8;--cream2:#ede7d9;--white:#fff;
+  --text:#1c1c2e;--muted:#64647a;--light:#9999b0;
+  --bd:rgba(201,169,110,.18);--bd2:rgba(255,255,255,.07);
+  --sw:252px;--rad:8px;
 }
-
-html,body{height:100%;overflow:hidden}
-body{font-family:var(--font-sans);background:var(--cream);color:var(--text);display:flex;flex-direction:row}
-
-/* -- SIDEBAR ---------------------------------------- */
-#sb{
-  width:var(--sw);min-width:var(--sw);
-  background:var(--navy);
-  display:flex;flex-direction:column;
-  height:100vh;overflow-y:auto;
-  border-right:1px solid var(--bd2);
-  position:relative;z-index:10;
-}
-#sb::-webkit-scrollbar{width:3px}
-#sb::-webkit-scrollbar-track{background:transparent}
-#sb::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:3px}
-
-.sb-top{padding:20px 16px 14px;border-bottom:1px solid var(--bd2);display:flex;align-items:center;gap:10px}
-.sb-logo{width:36px;height:36px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-weight:700;font-size:1rem;color:var(--navy);flex-shrink:0}
-.sb-txt strong{display:block;font-size:.82rem;font-weight:600;color:var(--white);letter-spacing:.02em}
-.sb-txt span{font-size:.66rem;color:rgba(255,255,255,.35)}
-
-.sb-section{padding:12px 10px 6px}
-.sb-lbl{font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.25);padding:8px 10px 4px;font-weight:500}
-
-.ni{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:6px;cursor:pointer;position:relative;transition:background .15s;user-select:none}
-.ni:hover{background:rgba(255,255,255,.06)}
+html{height:100%}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);min-height:100%;display:flex}
+/* SIDEBAR */
+#sb{width:var(--sw);min-width:var(--sw);background:var(--navy);display:flex;flex-direction:column;min-height:100vh;position:sticky;top:0;align-self:flex-start;border-right:1px solid var(--bd2);z-index:50}
+.sb-top{padding:20px 15px 16px;border-bottom:1px solid var(--bd2);display:flex;align-items:center;gap:10px;flex-shrink:0}
+.sb-logo{width:36px;height:36px;border-radius:8px;flex-shrink:0;background:linear-gradient(135deg,var(--gold),var(--gold2));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:.95rem;font-weight:700;color:var(--navy)}
+.sb-txt strong{display:block;font-size:.78rem;font-weight:600;color:var(--white)}
+.sb-txt span{font-size:.61rem;color:rgba(255,255,255,.3);letter-spacing:.04em}
+.sb-atalhos{padding:13px 12px;border-bottom:1px solid var(--bd2);display:flex;flex-direction:column;gap:5px;flex-shrink:0}
+.sb-atalhos-lbl{font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.22);font-weight:600;margin-bottom:4px}
+.at{display:flex;align-items:center;gap:8px;padding:9px 11px;border-radius:6px;background:rgba(201,169,110,.15);border:1px solid rgba(201,169,110,.28);color:var(--gold2);font-size:.77rem;font-weight:600;cursor:pointer;transition:background .16s,transform .15s;text-decoration:none;font-family:'DM Sans',sans-serif}
+.at:hover{background:rgba(201,169,110,.26);transform:translateX(2px)}
+.at svg{flex-shrink:0;opacity:.9}
+.at.at-adm{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1);color:rgba(255,255,255,.5)}
+.at.at-adm:hover{background:rgba(255,255,255,.08);color:var(--white)}
+.sb-lbl{font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.2);font-weight:600;padding:14px 15px 6px;flex-shrink:0}
+.sb-nav{display:flex;flex-direction:column;gap:1px;padding:0 8px;flex-shrink:0}
+.ni{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:6px;cursor:pointer;position:relative;transition:background .18s}
+.ni::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:3px;height:0;border-radius:0 2px 2px 0;background:var(--gold);transition:height .2s}
+.ni:hover{background:rgba(255,255,255,.05)}
 .ni.active{background:var(--gold3)}
-.ni.active::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:3px;height:52%;border-radius:0 2px 2px 0;background:var(--gold)}
-.nico{width:15px;height:15px;flex-shrink:0;color:rgba(255,255,255,.4)}
+.ni.active::before{height:52%}
 .ni.active .nico{color:var(--gold)}
-.nl{font-size:.77rem;color:rgba(255,255,255,.55);flex:1}
-.ni.active .nl{color:var(--white)}
-.nb{font-size:.6rem;background:var(--gold2);color:var(--gold);padding:2px 7px;border-radius:999px;font-weight:600}
-
-.sb-atalhos{padding:8px 10px;display:flex;flex-direction:column;gap:4px}
-.sb-atalhos-lbl{font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.25);padding:4px 0 6px;font-weight:500}
-.at{display:flex;align-items:center;gap:7px;padding:7px 10px;border-radius:6px;cursor:pointer;font-size:.73rem;color:rgba(255,255,255,.45);text-decoration:none;transition:background .15s;background:transparent;border:none;font-family:var(--font-sans);width:100%;text-align:left}
-.at:hover{background:rgba(255,255,255,.06);color:rgba(255,255,255,.75)}
-.at-adm{margin-top:4px;color:rgba(201,169,110,.6)}
-.at-adm:hover{background:var(--gold3);color:var(--gold)}
-
-.sb-motto{padding:12px 14px;margin:auto 10px 10px;border:1px solid var(--bd2);border-radius:8px}
-.sb-motto p{font-family:var(--font-serif);font-size:.72rem;font-style:italic;color:rgba(255,255,255,.3);line-height:1.55}
-.sb-motto small{font-size:.58rem;color:rgba(255,255,255,.18);margin-top:5px;display:block}
-
-/* -- MAIN ------------------------------------------- */
-#main{flex:1;min-width:0;height:100vh;overflow-y:auto;overflow-x:hidden}
-
-.page{display:none}
-.page.active{display:block}
-
-/* -- HERO ------------------------------------------- */
-.hero{background:var(--navy);padding:56px 6vw 48px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 65% 55% at 108% 38%,rgba(201,169,110,.09),transparent 65%)}
-.hero-tag{font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;font-weight:500}
-.hero h1{font-family:var(--font-serif);font-size:clamp(2rem,4vw,3rem);color:var(--white);line-height:1.18;margin-bottom:1rem;font-weight:600}
-.hero h1 em{color:var(--gold);font-style:normal}
-.hero-sub{font-size:.88rem;color:rgba(255,255,255,.48);max-width:480px;line-height:1.65}
-.hero-badges{display:flex;gap:8px;margin-top:1.6rem;flex-wrap:wrap}
-.hb{font-size:.65rem;padding:5px 12px;border-radius:999px;font-weight:500}
-.hb-g{background:var(--gold2);color:var(--gold);border:1px solid rgba(201,169,110,.22)}
-.hb-w{background:rgba(255,255,255,.06);color:rgba(255,255,255,.45);border:1px solid rgba(255,255,255,.1)}
-
-/* -- VALORES STRIP ---------------------------------- */
-.valores-strip{background:var(--navy2);border-top:1px solid var(--bd2);border-bottom:1px solid var(--bd2);padding:12px 6vw;display:flex;align-items:center;gap:1.5rem;overflow-x:auto;flex-wrap:wrap}
-.vs-item{display:flex;align-items:center;gap:8px;flex-shrink:0}
-.vs-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0}
-.vs-txt{font-size:.68rem;color:rgba(255,255,255,.4);font-weight:400;letter-spacing:.04em}
-.vs-div{width:1px;height:16px;background:var(--bd2);flex-shrink:0}
-
-/* -- SECTION ---------------------------------------- */
-.sec{padding:36px 6vw}
-.sec-hd{display:flex;align-items:baseline;gap:12px;margin-bottom:1.4rem}
-.sec-ttl{font-family:var(--font-serif);font-size:1.4rem;color:var(--navy);font-weight:600}
-.sec-line{flex:1;height:1px;background:var(--cream2)}
-
-/* -- HOME GRID -------------------------------------- */
-.home-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-bottom:2rem}
-.hg-card{background:var(--white);border:1px solid var(--bd);border-radius:var(--rad);padding:18px 16px;cursor:pointer;transition:box-shadow .18s,transform .18s;display:flex;flex-direction:column;gap:6px}
-.hg-card:hover{box-shadow:0 4px 16px rgba(8,25,46,.09);transform:translateY(-2px)}
-.hg-ico{width:32px;height:32px;border-radius:8px;background:var(--gold2);display:flex;align-items:center;justify-content:center;margin-bottom:4px}
-.hg-ico svg{color:var(--gold)}
-.hg-ttl{font-size:.84rem;font-weight:600;color:var(--navy)}
-.hg-sub{font-size:.7rem;color:var(--muted)}
-
-/* -- NEWS ------------------------------------------- */
-.news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
-.nc{background:var(--white);border:1px solid var(--bd);border-radius:var(--rad);padding:16px;display:flex;gap:14px}
-.nc-dt{text-align:center;flex-shrink:0}
-.nc-dt .day{font-family:var(--font-serif);font-size:1.6rem;font-weight:700;color:var(--navy);line-height:1}
-.nc-dt .mon{font-size:.6rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
-.nc-body{flex:1}
-.ntag{font-size:.55rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:999px;display:inline-block;margin-bottom:5px}
-.t-liga{background:rgba(99,179,237,.15);color:#2b6cb0}
-.t-ca{background:rgba(201,169,110,.15);color:#8b6914}
-.t-ev{background:rgba(154,230,180,.15);color:#276749}
-.t-sci{background:rgba(183,148,246,.15);color:#6b46c1}
-.nc-body h4{font-size:.82rem;font-weight:600;color:var(--navy);margin-bottom:3px;line-height:1.3}
+.ni.active .nl{color:var(--white);font-weight:500}
+.nico{width:15px;height:15px;flex-shrink:0;color:rgba(255,255,255,.3);transition:color .18s}
+.nl{font-size:.76rem;color:rgba(255,255,255,.46);white-space:nowrap;transition:color .18s}
+.nb{margin-left:auto;background:var(--gold);color:var(--navy);font-size:.55rem;font-weight:700;padding:1px 6px;border-radius:999px}
+.sb-motto{padding:13px 15px;border-top:1px solid var(--bd2);margin-top:auto;flex-shrink:0}
+.sb-motto p{font-size:.62rem;font-style:italic;color:rgba(201,169,110,.5);line-height:1.5;margin-bottom:5px}
+.sb-motto small{font-size:.58rem;color:rgba(255,255,255,.15)}
+/* MAIN */
+#main{flex:1;min-width:0;overflow-x:hidden;height:100vh;overflow-y:auto}
+.page{display:none}.page.active{display:block}
+/* HERO */
+.hero{background:var(--navy);padding:60px 6vw 52px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 65% 55% at 108% 38%,rgba(201,169,110,.09),transparent 60%)}
+.h-eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1.3rem}
+.h-eyebrow .ln{width:18px;height:1px;background:var(--gold);opacity:.5}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.3rem,5vw,4.6rem);line-height:.97;color:var(--white);font-weight:600;max-width:580px;margin-bottom:1.1rem}
+.hero h1 em{color:var(--gold);font-style:italic}
+.hero-lema{font-size:.88rem;color:rgba(255,255,255,.45);max-width:460px;line-height:1.75;margin-bottom:.4rem;font-style:italic;border-left:2px solid rgba(201,169,110,.35);padding-left:.9rem}
+.hero-sub{font-size:.72rem;color:rgba(255,255,255,.24);margin-bottom:2rem;padding-left:1.1rem}
+.hero-ctas{display:flex;gap:.65rem;flex-wrap:wrap;margin-bottom:2.6rem}
+.cta{display:inline-flex;align-items:center;gap:7px;padding:12px 22px;border-radius:6px;font-size:.83rem;font-weight:600;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;text-decoration:none;transition:transform .16s,background .16s}
+.cta-p{background:var(--gold);color:var(--navy)}.cta-p:hover{background:var(--gold2);transform:translateY(-2px)}
+.cta-s{background:rgba(255,255,255,.07);color:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.14)}.cta-s:hover{background:rgba(255,255,255,.12);color:var(--white)}
+.hero-stats{display:flex;gap:2.4rem;border-top:1px solid rgba(255,255,255,.07);padding-top:1.8rem;flex-wrap:wrap}
+.hs .num{font-family:'Cormorant Garamond',serif;font-size:2.1rem;color:var(--gold);line-height:1}
+.hs .lbl{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:2px}
+.vstrip{background:var(--navy2);border-bottom:1px solid var(--bd2);padding:13px 6vw;display:flex;gap:0;overflow-x:auto;white-space:nowrap}
+.vstrip::-webkit-scrollbar{display:none}
+.vi{display:inline-flex;align-items:center;gap:7px;padding:0 20px;flex-shrink:0}
+.vi+.vi{border-left:1px solid rgba(255,255,255,.08)}.vi:first-child{padding-left:0}
+.vd{width:5px;height:5px;border-radius:50%;background:var(--gold);opacity:.7;flex-shrink:0}
+.vi span{font-size:.7rem;color:rgba(255,255,255,.42)}
+.ad-section{padding:38px 6vw 28px}
+.sec-hd{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:1.1rem;gap:1rem}
+.sec-hd h2{font-family:'Cormorant Garamond',serif;font-size:1.55rem;color:var(--navy)}
+.sec-hd a{font-size:.73rem;color:var(--gold);text-decoration:none;cursor:pointer}.sec-hd a:hover{text-decoration:underline}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:.8rem}
+.tile{background:var(--white);border:1px solid rgba(0,0,0,.06);border-radius:var(--rad);padding:1.2rem;display:flex;flex-direction:column;gap:.6rem;box-shadow:0 2px 12px rgba(8,25,46,.05);cursor:pointer;transition:transform .18s,box-shadow .18s,border-color .18s;position:relative;overflow:hidden}
+.tile::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);opacity:0;transition:opacity .18s}
+.tile:hover{transform:translateY(-3px);box-shadow:0 9px 26px rgba(8,25,46,.1);border-color:rgba(201,169,110,.22)}.tile:hover::after{opacity:1}
+.tile-ico{width:36px;height:36px;border-radius:7px;background:var(--gold3);display:flex;align-items:center;justify-content:center;color:var(--gold)}
+.tile h3{font-size:.85rem;font-weight:600;color:var(--navy)}
+.tile p{font-size:.72rem;color:var(--muted);line-height:1.5;flex:1}
+.tile-arr{display:flex;align-items:center;gap:4px;font-size:.68rem;font-weight:600;color:var(--gold)}
+.tile.hl{background:var(--navy);border-color:var(--navy)}.tile.hl .tile-ico{background:rgba(201,169,110,.15)}.tile.hl h3{color:var(--white)}.tile.hl p{color:rgba(255,255,255,.42)}
+.home-news{padding:0 6vw 32px}
+.news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:.8rem}
+.nc{background:var(--white);border:1px solid rgba(0,0,0,.05);border-radius:var(--rad);padding:1rem;display:flex;gap:.9rem;align-items:flex-start;cursor:pointer;transition:box-shadow .18s,border-color .18s}
+.nc:hover{box-shadow:0 4px 16px rgba(8,25,46,.08);border-color:rgba(201,169,110,.18)}
+.nc-dt{flex-shrink:0;text-align:center;background:var(--navy);color:var(--gold);border-radius:5px;padding:5px 8px;min-width:42px}
+.nc-dt .day{font-family:'Cormorant Garamond',serif;font-size:1.2rem;line-height:1;font-weight:600}
+.nc-dt .mon{font-size:.52rem;letter-spacing:.07em;text-transform:uppercase;opacity:.6}
+.nc-body h4{font-size:.82rem;font-weight:600;color:var(--navy);margin-bottom:.18rem;line-height:1.3}
 .nc-body p{font-size:.72rem;color:var(--muted);line-height:1.5}
-
-/* full news page */
-.ni2{background:var(--white);border:1px solid var(--bd);border-radius:var(--rad);padding:16px;display:flex;gap:14px}
-.ndate{text-align:center;flex-shrink:0;min-width:36px}
-.ndate .day{font-family:var(--font-serif);font-size:1.5rem;font-weight:700;color:var(--navy);line-height:1}
-.ndate .mon{font-size:.58rem;text-transform:uppercase;color:var(--muted)}
-.nbody{flex:1}
-.nbody h4{font-size:.85rem;font-weight:600;color:var(--navy);margin:.3rem 0 .2rem}
-.nbody p{font-size:.73rem;color:var(--muted);line-height:1.55}
-#news-list{display:flex;flex-direction:column;gap:10px}
-
-/* -- AGENDA ----------------------------------------- */
-.ag-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
-.ag-card{background:var(--white);border:1px solid var(--bd);border-radius:var(--rad);padding:18px;border-top:3px solid var(--gold)}
-.ag-day{font-size:.65rem;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
-.ag-card h4{font-size:.88rem;font-weight:600;color:var(--navy);margin-bottom:5px}
-.ag-card p{font-size:.73rem;color:var(--muted);line-height:1.5;margin-bottom:8px}
-.ag-time{font-size:.63rem;color:var(--light);display:flex;align-items:center;gap:4px}
-
-.evc{background:var(--white);border:1px solid var(--bd);border-radius:var(--rad);padding:14px;border-left:3px solid var(--gold)}
-.evc-day{font-size:.6rem;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
-.evc h4{font-size:.82rem;font-weight:600;color:var(--navy);margin-bottom:3px}
-.evc p{font-size:.7rem;color:var(--muted);line-height:1.45;margin-bottom:5px}
-.evc-time{font-size:.6rem;color:var(--light);display:flex;align-items:center;gap:4px}
-#home-ev-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
-
-/* -- LIGAS ------------------------------------------ */
-.liga-filter{display:flex;gap:7px;margin-bottom:1.2rem;flex-wrap:wrap}
-.fbtn{background:var(--white);border:1px solid var(--bd);color:var(--muted);font-size:.72rem;padding:5px 14px;border-radius:999px;cursor:pointer;font-family:var(--font-sans);transition:all .15s}
-.fbtn:hover{border-color:var(--gold);color:var(--gold)}
-.fbtn.active{background:var(--gold);color:var(--navy);border-color:var(--gold);font-weight:600}
-.liga-stats{display:flex;gap:10px;margin-bottom:1.2rem;flex-wrap:wrap}
-.ls-chip{background:var(--white);border:1px solid var(--bd);border-radius:8px;padding:10px 16px;text-align:center}
-.ls-n{font-family:var(--font-serif);font-size:1.4rem;font-weight:700;color:var(--navy)}
-.ls-l{font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
-
-.li-item{background:var(--white);border:1px solid var(--bd);border-radius:var(--rad);overflow:hidden;margin-bottom:8px;transition:box-shadow .15s}
-.li-item:hover{box-shadow:0 2px 12px rgba(8,25,46,.07)}
-.li-row{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;user-select:none}
-.li-ico{width:32px;height:32px;border-radius:8px;background:var(--gold2);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold)}
+.ntag{display:inline-block;font-size:.54rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:2px 6px;border-radius:999px;margin-bottom:.28rem}
+.t-liga{background:#dbeafe;color:#1d4ed8}.t-ev{background:#fce7f3;color:#be185d}.t-ca{background:#d1fae5;color:#065f46}.t-sci{background:#ede9fe;color:#5b21b6}
+.home-ev{background:var(--cream2);padding:28px 6vw 36px}
+.ev-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(218px,1fr));gap:.8rem}
+.evc{background:var(--white);border-left:3px solid var(--gold);border-radius:0 var(--rad) var(--rad) 0;padding:1rem;box-shadow:0 2px 10px rgba(8,25,46,.04)}
+.evc-day{font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:.28rem}
+.evc h4{font-size:.83rem;font-weight:600;color:var(--navy);margin-bottom:.22rem;line-height:1.25}
+.evc p{font-size:.72rem;color:var(--muted);line-height:1.5}
+.evc-time{display:flex;align-items:center;gap:4px;font-size:.64rem;color:var(--light);margin-top:.4rem}
+.mission{background:var(--navy);padding:40px 6vw;display:flex;gap:3rem;flex-wrap:wrap;align-items:flex-start}
+.ms-left{flex:1;min-width:200px}
+.ms-left .mtag{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:.65rem;display:block}
+.ms-left blockquote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.25rem,2.4vw,1.9rem);color:var(--white);line-height:1.32;font-style:italic}
+.ms-left blockquote span{color:var(--gold)}.ms-left .mfonte{font-size:.62rem;color:rgba(255,255,255,.22);margin-top:.8rem}
+.ms-right{flex:1;min-width:200px;display:flex;flex-direction:column;gap:.75rem}
+.mv{display:flex;gap:.7rem;align-items:flex-start}
+.mvd{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:5px;opacity:.75}
+.mv h4{font-size:.77rem;font-weight:600;color:var(--white);margin-bottom:.12rem}
+.mv p{font-size:.7rem;color:rgba(255,255,255,.38);line-height:1.55}
+.ph{background:var(--navy);padding:50px 6vw 42px;position:relative;overflow:hidden}
+.ph::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 80% at 100% 50%,rgba(201,169,110,.06),transparent 60%)}
+.ph-tag{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;font-weight:600}
+.ph h1{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.8vw,3rem);color:var(--white);line-height:1.05;margin-bottom:.55rem}
+.ph p{font-size:.86rem;color:rgba(255,255,255,.42);max-width:440px;line-height:1.7}
+.lbar{background:var(--white);border-bottom:1px solid rgba(0,0,0,.07);padding:11px 6vw;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.lstat{display:flex;align-items:center;gap:5px;font-size:.74rem;color:var(--muted)}.lstat strong{color:var(--navy);font-size:.83rem}
+.lsep{width:1px;height:16px;background:rgba(0,0,0,.09)}
+.lfilter{display:flex;gap:.38rem;margin-left:auto;flex-wrap:wrap}
+.fbtn{background:none;border:1px solid rgba(0,0,0,.11);color:var(--muted);font-size:.7rem;padding:3px 11px;border-radius:999px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .16s}
+.fbtn.active,.fbtn:hover{background:var(--navy);border-color:var(--navy);color:var(--white)}
+.pc{padding:32px 6vw 48px}
+/* ACCORDION LIGAS */
+.li-item{background:var(--white);border:1px solid rgba(8,25,46,.08);border-radius:var(--rad);margin-bottom:8px;overflow:hidden;box-shadow:0 2px 10px rgba(8,25,46,.04);transition:box-shadow .2s,border-color .2s}
+.li-item:hover{box-shadow:0 4px 18px rgba(8,25,46,.09)}.li-item.aopen{border-color:rgba(201,169,110,.3)}
+.li-row{display:flex;align-items:center;gap:13px;padding:15px 18px;cursor:pointer;transition:background .18s;user-select:none}
+.li-row:hover{background:rgba(201,169,110,.04)}.li-item.aopen .li-row{background:rgba(201,169,110,.06);border-bottom:1px solid rgba(8,25,46,.07)}
+.li-ico{width:40px;height:40px;border-radius:8px;flex-shrink:0;background:rgba(201,169,110,.12);display:flex;align-items:center;justify-content:center;color:var(--gold)}
 .li-inf{flex:1;min-width:0}
-.li-area{font-size:.6rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:2px}
-.li-name{font-size:.88rem;font-weight:600;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.li-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
-.li-dl{font-size:.62rem;color:var(--light)}
-.bs{font-size:.58rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:999px}
-.bs-open{background:rgba(154,230,180,.2);color:#276749}
-.bs-soon{background:rgba(251,211,141,.2);color:#b7791f}
-.bs-closed{background:rgba(0,0,0,.06);color:var(--muted)}
-.li-chev{width:14px;height:14px;color:var(--light);transition:transform .2s;flex-shrink:0}
-.li-item.aopen .li-chev{transform:rotate(180deg)}
-.li-panel{display:none;padding:0 16px 16px;border-top:1px solid var(--bd);padding-top:14px}
-.li-item.aopen .li-panel{display:block}
-.li-desc{font-size:.78rem;color:var(--text);line-height:1.65;margin-bottom:12px}
-.li-chips{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}
-.achip{background:var(--cream);border:1px solid var(--cream2);border-radius:6px;padding:5px 10px;font-size:.68rem;color:var(--text)}
-.achip strong{color:var(--navy)}
-.li-reqs{margin-bottom:12px}
-.li-reqs-ttl{font-size:.65rem;font-weight:600;color:var(--navy);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px}
-.li-reqs ul{padding-left:16px}
-.li-reqs li{font-size:.74rem;color:var(--muted);margin-bottom:3px;line-height:1.4}
-.li-acts2{display:flex;gap:8px;flex-wrap:wrap}
-.la2{font-size:.74rem;font-weight:500;padding:8px 16px;border-radius:6px;cursor:pointer;font-family:var(--font-sans);text-decoration:none;border:none;transition:all .15s}
-.la2-s{background:var(--cream);color:var(--navy);border:1px solid var(--bd)}
-.la2-s:hover{background:var(--cream2)}
-.la2-p{background:var(--navy);color:var(--white)}
-.la2-p:hover{background:var(--navy3)}
-
-/* -- BENEFÍCIOS ------------------------------------- */
-.ben-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
-.bc{background:var(--white);border:1px solid var(--bd);border-radius:var(--rad);padding:18px;display:flex;gap:14px}
-.bico{width:32px;height:32px;border-radius:8px;background:var(--gold2);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold)}
-.bc h4{font-size:.86rem;font-weight:600;color:var(--navy);margin-bottom:4px}
-.bc p{font-size:.73rem;color:var(--muted);line-height:1.5}
-
-/* -- COMUNICAÇÃO ------------------------------------ */
-.comm-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
-
-/* -- DIRETORIA -------------------------------------- */
-.dir-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;margin-bottom:2rem}
-.dc{background:var(--white);border:1px solid var(--bd);border-radius:var(--rad);padding:18px;text-align:center}
-.dav{width:44px;height:44px;border-radius:50%;background:var(--navy);color:var(--gold);font-family:var(--font-serif);font-size:1.1rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 8px}
-.drole{font-size:.6rem;text-transform:uppercase;letter-spacing:.09em;color:var(--gold);margin-bottom:4px;font-weight:500}
-.dc h4{font-size:.83rem;font-weight:600;color:var(--navy);margin-bottom:3px}
-.dc p{font-size:.68rem;color:var(--muted)}
-.contact-box{background:var(--white);border:1px solid var(--bd);border-radius:var(--rad);padding:20px}
-.contact-box h3{font-family:var(--font-serif);font-size:1.1rem;color:var(--navy);margin-bottom:12px;font-weight:600}
-.ctf{display:flex;align-items:baseline;gap:10px;padding:8px 0;border-bottom:1px solid var(--bd)}
-.ctf:last-child{border-bottom:none}
-.cl2{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);min-width:90px}
-.cv{font-size:.82rem;color:var(--navy)}
-
-/* -- MISSÃO BANNER ---------------------------------- */
-.miss-banner{background:var(--navy);padding:36px 6vw;text-align:center}
-.miss-banner blockquote{font-family:var(--font-serif);font-size:clamp(1.1rem,2.5vw,1.5rem);font-style:italic;color:var(--white);line-height:1.5;margin-bottom:.5rem}
-.miss-banner cite{font-size:.72rem;color:var(--gold);font-style:normal}
-
-/* -- LOGIN OVERLAY ---------------------------------- */
-.lov{position:fixed;inset:0;z-index:500;background:rgba(8,25,46,.93);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:20px}
+.li-area{font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:2px}
+.li-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--navy);line-height:1.2}
+.li-right{display:flex;align-items:center;gap:11px;flex-shrink:0}
+.li-dl{display:flex;align-items:center;gap:5px;font-size:.73rem;color:var(--muted);white-space:nowrap}.li-dl svg{opacity:.5}
+.bs{display:inline-block;font-size:.57rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:2px 7px;border-radius:999px}
+.bs-open{background:#d1fae5;color:#065f46}.bs-soon{background:#fef3c7;color:#92400e}.bs-closed{background:#f3f4f6;color:#6b7280}
+.li-chev{width:17px;height:17px;color:var(--muted);transition:transform .25s;flex-shrink:0}.li-item.aopen .li-chev{transform:rotate(180deg)}
+.li-panel{display:none;padding:18px 18px 22px;animation:panIn .2s ease}.li-item.aopen .li-panel{display:block}
+@keyframes panIn{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:none}}
+.li-desc{font-size:.86rem;color:var(--muted);line-height:1.72;margin-bottom:14px;max-width:660px}
+.li-chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px}
+.achip{display:inline-flex;align-items:center;gap:6px;background:var(--cream);border:1px solid rgba(8,25,46,.08);border-radius:6px;padding:6px 12px;font-size:.77rem;color:var(--text)}
+.achip svg{color:var(--gold);flex-shrink:0}.achip strong{color:var(--navy);margin-right:3px}
+.li-reqs{margin-bottom:16px}.li-reqs-ttl{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:7px}
+.li-reqs ul{list-style:none;display:flex;flex-direction:column;gap:4px}
+.li-reqs li{display:flex;align-items:flex-start;gap:7px;font-size:.82rem;color:var(--muted);line-height:1.55}
+.li-reqs li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:7px}
+.li-acts2{display:flex;gap:9px;flex-wrap:wrap}
+.la2{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;border-radius:5px;font-size:.82rem;font-weight:600;text-decoration:none;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;transition:background .18s,transform .15s,border-color .18s,color .18s}
+.la2-p{background:var(--navy);color:var(--white)}.la2-p:hover{background:var(--navy2);transform:translateY(-1px)}
+.la2-s{background:transparent;color:var(--navy);border:1px solid rgba(8,25,46,.18)}.la2-s:hover{border-color:var(--gold);color:var(--gold)}
+/* other pages */
+.news-full{display:flex;flex-direction:column;gap:.75rem}
+.ni2{display:flex;gap:.9rem;align-items:flex-start;background:var(--white);border:1px solid rgba(0,0,0,.05);border-radius:var(--rad);padding:.95rem;cursor:pointer;transition:box-shadow .18s,border-color .18s}
+.ni2:hover{box-shadow:0 4px 14px rgba(8,25,46,.07);border-color:rgba(201,169,110,.18)}
+.ndate{flex-shrink:0;text-align:center;background:var(--navy);color:var(--gold);border-radius:5px;padding:5px 8px;min-width:42px}
+.ndate .day{font-family:'Cormorant Garamond',serif;font-size:1.2rem;line-height:1;font-weight:600}.ndate .mon{font-size:.52rem;letter-spacing:.07em;text-transform:uppercase;opacity:.6}
+.nbody h4{font-size:.83rem;font-weight:600;color:var(--navy);margin-bottom:.18rem;line-height:1.3}.nbody p{font-size:.74rem;color:var(--muted);line-height:1.5}
+.ag-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(218px,1fr));gap:.85rem}
+.ag-card{background:var(--white);border:1px solid rgba(0,0,0,.05);border-radius:var(--rad);padding:1.1rem;border-left:3px solid var(--gold);box-shadow:0 2px 9px rgba(8,25,46,.04)}
+.ag-day{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:.3rem}
+.ag-card h4{font-size:.84rem;font-weight:600;color:var(--navy);margin-bottom:.22rem;line-height:1.2}.ag-card p{font-size:.72rem;color:var(--muted);line-height:1.5}
+.ag-time{display:flex;align-items:center;gap:4px;font-size:.63rem;color:var(--light);margin-top:.42rem}
+.ben{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.85rem}
+.bc{background:var(--white);border:1px solid rgba(0,0,0,.06);border-radius:var(--rad);padding:1.2rem;display:flex;gap:.8rem;align-items:flex-start;box-shadow:0 2px 10px rgba(8,25,46,.04);transition:transform .18s,box-shadow .18s}
+.bc:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(8,25,46,.08)}
+.bico{width:36px;height:36px;border-radius:7px;background:var(--gold3);display:flex;align-items:center;justify-content:center;color:var(--gold);flex-shrink:0}
+.bc h4{font-size:.82rem;font-weight:600;color:var(--navy);margin-bottom:.2rem}.bc p{font-size:.72rem;color:var(--muted);line-height:1.5}
+.dir{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:.85rem}
+.dc{background:var(--white);border:1px solid rgba(0,0,0,.06);border-radius:var(--rad);padding:1.2rem;text-align:center;box-shadow:0 2px 9px rgba(8,25,46,.04);transition:transform .18s,box-shadow .18s}
+.dc:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(8,25,46,.08)}
+.dav{width:46px;height:46px;border-radius:50%;margin:0 auto .75rem;background:linear-gradient(135deg,var(--navy),var(--navy3));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--gold);font-weight:600}
+.drole{font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:.28rem}
+.dc h4{font-size:.8rem;font-weight:600;color:var(--navy);margin-bottom:.1rem}.dc p{font-size:.63rem;color:var(--muted)}
+.ctbox{background:var(--navy);border-radius:var(--rad);padding:1.7rem;display:flex;flex-wrap:wrap;gap:1.8rem;align-items:flex-start;margin-top:2rem}
+.ctinfo .stag{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.38rem;font-weight:600;display:block}
+.ctinfo h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--white);margin-bottom:.45rem}
+.ctinfo p{font-size:.76rem;color:rgba(255,255,255,.36);line-height:1.6;max-width:190px}
+.ctfields{display:flex;flex-direction:column;gap:.55rem;flex:1;min-width:170px}
+.ctf{background:rgba(255,255,255,.05);border-radius:5px;padding:.75rem .95rem}
+.cl2{font-size:.55rem;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);margin-bottom:.2rem}
+.cv{font-size:.81rem;color:var(--white)}
+/* LOGIN */
+.lov{display:none;position:fixed;inset:0;z-index:500;background:rgba(8,25,46,.93);backdrop-filter:blur(8px);align-items:center;justify-content:center}
 .lov.open{display:flex}
-.lbox{background:var(--navy2);border:1px solid var(--bd2);border-radius:16px;padding:2rem 2rem 1.6rem;width:100%;max-width:360px}
-.lbox-logo{width:40px;height:40px;background:var(--gold);border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-weight:700;font-size:1.1rem;color:var(--navy);margin:0 auto 1rem}
-.lbox h2{font-family:var(--font-serif);font-size:1.5rem;color:var(--white);text-align:center;margin-bottom:.3rem;font-weight:600}
-.lsub{font-size:.74rem;color:rgba(255,255,255,.35);text-align:center;margin-bottom:1.4rem;line-height:1.5}
-.lf{margin-bottom:.85rem}
-.lf label{display:block;font-size:.68rem;font-weight:500;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.35rem}
-.lf input{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:var(--white);border-radius:7px;padding:9px 12px;font-size:.84rem;font-family:var(--font-sans);outline:none;transition:border .15s}
-.lf input:focus{border-color:rgba(201,169,110,.5)}
-.lerr{font-size:.72rem;color:#fc8181;text-align:center;display:none;margin-bottom:.6rem}
-.lsub-btn{width:100%;background:var(--gold);color:var(--navy);border:none;border-radius:7px;padding:10px;font-size:.84rem;font-weight:600;font-family:var(--font-sans);cursor:pointer;margin-top:.4rem;transition:opacity .15s}
-.lsub-btn:hover{opacity:.88}
-.lcancel-btn{width:100%;background:transparent;border:none;color:rgba(255,255,255,.3);font-size:.72rem;cursor:pointer;margin-top:.6rem;font-family:var(--font-sans);transition:color .15s;padding:4px}
-.lcancel-btn:hover{color:rgba(255,255,255,.6)}
-.lforgot-btn{width:100%;background:transparent;border:none;color:rgba(201,169,110,.45);font-size:.7rem;cursor:pointer;margin-top:.2rem;font-family:var(--font-sans);transition:color .15s;padding:4px}
-.lforgot-btn:hover{color:var(--gold)}
-
-/* -- ADMIN OVERLAY ---------------------------------- */
-#adm{position:fixed;inset:0;z-index:600;background:var(--navy);display:none;flex-direction:column}
+@keyframes mi{from{opacity:0;transform:scale(.96) translateY(12px)}to{opacity:1;transform:none}}
+.lbox{background:#0b1e35;border:1px solid rgba(201,169,110,.2);border-radius:12px;padding:2.4rem;width:400px;max-width:94vw;animation:mi .25s ease}
+.lbox-logo{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--gold),var(--gold2));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--navy);margin:0 auto 1.2rem}
+.lbox h2{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--white);text-align:center;margin-bottom:.25rem}
+.lbox .lsub{font-size:.74rem;color:rgba(255,255,255,.3);text-align:center;margin-bottom:1.6rem}
+.lf{display:flex;flex-direction:column;gap:.28rem;margin-bottom:.75rem}
+.lf label{font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(201,169,110,.7);font-weight:600}
+.lf input{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:var(--white);border-radius:6px;padding:10px 12px;font-size:.85rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .16s,background .16s;width:100%}
+.lf input:focus{border-color:rgba(201,169,110,.45);background:rgba(255,255,255,.07)}
+.lf input::placeholder{color:rgba(255,255,255,.2)}
+.lerr{font-size:.72rem;color:#f87171;display:none;text-align:center;margin-top:.35rem}
+.lsub-btn{width:100%;background:var(--gold);color:var(--navy);border:none;border-radius:6px;padding:11px;font-size:.87rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .16s,transform .15s;margin-top:.3rem}
+.lsub-btn:hover{background:var(--gold2);transform:translateY(-1px)}
+.lcancel{width:100%;background:transparent;border:none;color:rgba(255,255,255,.25);font-size:.7rem;cursor:pointer;margin-top:.6rem;font-family:'DM Sans',sans-serif;transition:color .16s;display:block;text-align:center}
+.lcancel:hover{color:rgba(255,255,255,.5)}
+/* ADMIN */
+#adm{display:none;position:fixed;inset:0;z-index:600;background:#08192e;flex-direction:column}
 #adm.open{display:flex}
-.an{display:flex;align-items:center;gap:10px;padding:10px 16px;border-bottom:1px solid var(--bd2);flex-shrink:0}
-.an-logo{font-family:var(--font-serif);font-size:.85rem;font-weight:700;color:var(--gold)}
-.an-sep{flex:1}
-.an-user{display:flex;align-items:center;gap:8px}
-#an-avatar{width:28px;height:28px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:var(--navy)}
-#an-uname{font-size:.74rem;color:rgba(255,255,255,.5)}
-.an-btn{background:transparent;border:1px solid var(--bd2);color:rgba(255,255,255,.4);font-size:.7rem;padding:5px 12px;border-radius:6px;cursor:pointer;font-family:var(--font-sans);transition:all .15s}
-.an-btn:hover{border-color:rgba(255,255,255,.25);color:rgba(255,255,255,.75)}
-.an-close{border-color:rgba(201,169,110,.3);color:rgba(201,169,110,.6)}
-.an-close:hover{border-color:var(--gold);color:var(--gold)}
-
-.adm-body{display:flex;flex:1;min-height:0}
-.amenu{width:180px;min-width:180px;border-right:1px solid var(--bd2);padding:12px 8px;overflow-y:auto;flex-shrink:0}
-.amenu-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:6px;cursor:pointer;font-size:.75rem;color:rgba(255,255,255,.4);transition:all .15s;margin-bottom:2px;user-select:none}
-.amenu-item:hover{background:rgba(255,255,255,.05);color:rgba(255,255,255,.7)}
-.amenu-item.active{background:var(--gold3);color:var(--gold)}
-.amenu-item svg{width:13px;height:13px;flex-shrink:0}
-
-.acontent{flex:1;min-width:0;overflow-y:auto;padding:20px}
-
-/* apanel */
-.apanel{display:none}
-.apanel.active{display:block}
-
-/* liga admin */
-.alig-layout{display:flex;gap:16px;height:calc(100vh - 120px)}
-.alist-wrap{width:200px;min-width:200px;border-right:1px solid var(--bd2);padding-right:12px;overflow-y:auto}
-.alist-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-.alist-hd span{font-size:.65rem;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.08em}
-.anew-btn{background:var(--gold);color:var(--navy);border:none;border-radius:5px;padding:4px 10px;font-size:.68rem;font-weight:600;cursor:pointer;font-family:var(--font-sans)}
-.ait{padding:8px 10px;border-radius:6px;cursor:pointer;margin-bottom:4px;transition:background .12s}
-.ait:hover{background:rgba(255,255,255,.05)}
-.ait.sel{background:var(--gold3)}
-.ain{display:block;font-size:.73rem;color:rgba(255,255,255,.65);margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.aib{font-size:.55rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:2px 7px;border-radius:999px}
-.aib-open{background:rgba(154,230,180,.15);color:#68d391}
-.aib-soon{background:rgba(251,211,141,.15);color:#f6ad55}
-.aib-closed{background:rgba(255,255,255,.06);color:rgba(255,255,255,.3)}
-
-.aform-wrap{flex:1;min-width:0;overflow-y:auto}
-#liga-welc{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:8px;opacity:.35}
-#liga-welc svg{width:32px;height:32px;color:rgba(255,255,255,.3)}
-#liga-welc p{font-size:.75rem;color:rgba(255,255,255,.4)}
-
-/* form */
-.fg{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
-.fi{display:flex;flex-direction:column;gap:5px}
-.fi.s2{grid-column:span 2}
-.fi label{font-size:.62rem;font-weight:500;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.07em}
-.fi input,.fi select,.fi textarea{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:var(--white);border-radius:6px;padding:7px 10px;font-size:.78rem;font-family:var(--font-sans);outline:none;transition:border .15s;resize:vertical}
-.fi input:focus,.fi select:focus,.fi textarea:focus{border-color:rgba(201,169,110,.4)}
-.fi select option{background:var(--navy2);color:var(--white)}
-.fdiv{border:none;border-top:1px solid var(--bd2);margin:8px 0}
-.rlist{display:flex;flex-direction:column;gap:6px;margin-bottom:8px}
-.rrow{display:flex;gap:6px}
-.ri{flex:1;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:var(--white);border-radius:5px;padding:6px 9px;font-size:.76rem;font-family:var(--font-sans);outline:none}
-.rdel{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.35);border-radius:4px;padding:0 8px;cursor:pointer;font-size:.8rem;transition:all .12s}
-.rdel:hover{background:rgba(220,38,38,.2);color:#fc8181;border-color:rgba(220,38,38,.3)}
-.radd{background:transparent;border:1px dashed rgba(255,255,255,.15);color:rgba(255,255,255,.35);border-radius:5px;padding:6px 12px;font-size:.72rem;cursor:pointer;font-family:var(--font-sans);transition:all .12s;width:100%}
-.radd:hover{border-color:rgba(201,169,110,.4);color:var(--gold)}
-.ffile{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:5px;padding:5px 9px;margin-top:5px}
-.ffile-name{flex:1;font-size:.72rem;color:rgba(255,255,255,.6);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.ffile-size{font-size:.63rem;color:rgba(255,255,255,.25);flex-shrink:0}
-.ffile-del{background:transparent;border:none;color:rgba(255,255,255,.25);cursor:pointer;font-size:.8rem;padding:0 3px;flex-shrink:0}
-.ffile-del:hover{color:#fc8181}
-.factions{display:flex;align-items:center;justify-content:space-between;padding-top:12px;border-top:1px solid var(--bd2);margin-top:4px}
-.factions-r{display:flex;gap:8px}
-.asave{background:var(--gold);color:var(--navy);border:none;border-radius:6px;padding:8px 20px;font-size:.78rem;font-weight:600;cursor:pointer;font-family:var(--font-sans);transition:opacity .15s}
-.asave:hover{opacity:.85}
-.acancel{background:rgba(255,255,255,.06);color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:8px 16px;font-size:.78rem;cursor:pointer;font-family:var(--font-sans);transition:all .15s}
-.acancel:hover{background:rgba(255,255,255,.1)}
-.adel{background:transparent;color:rgba(220,38,38,.6);border:1px solid rgba(220,38,38,.25);border-radius:6px;padding:7px 14px;font-size:.74rem;cursor:pointer;font-family:var(--font-sans);transition:all .15s}
-.adel:hover{background:rgba(220,38,38,.1);color:#fc8181}
-
-/* content editors */
-.ce-list{display:flex;flex-direction:column;gap:10px;margin-bottom:12px}
-.ce-card{background:rgba(255,255,255,.03);border:1px solid var(--bd2);border-radius:8px;padding:12px;display:flex;gap:10px}
-.ce-body{flex:1;display:flex;flex-direction:column;gap:8px}
-.ce-body input,.ce-body textarea{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:var(--white);border-radius:5px;padding:6px 10px;font-size:.76rem;font-family:var(--font-sans);outline:none;width:100%;resize:vertical}
-.ce-body input:focus,.ce-body textarea:focus{border-color:rgba(201,169,110,.4)}
-.ce-save{background:rgba(201,169,110,.15);color:var(--gold);border:1px solid rgba(201,169,110,.25);border-radius:5px;padding:6px 12px;font-size:.7rem;cursor:pointer;font-family:var(--font-sans);white-space:nowrap;transition:all .12s}
-.ce-save:hover{background:rgba(201,169,110,.25)}
-.ce-del{background:rgba(255,255,255,.04);color:rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.08);border-radius:5px;padding:6px 10px;font-size:.75rem;cursor:pointer;transition:all .12s}
-.ce-del:hover{background:rgba(220,38,38,.12);color:#fc8181;border-color:rgba(220,38,38,.25)}
-.add-btn{background:transparent;border:1px dashed rgba(201,169,110,.25);color:rgba(201,169,110,.5);border-radius:6px;padding:8px;font-size:.74rem;cursor:pointer;font-family:var(--font-sans);width:100%;margin-top:4px;transition:all .12s}
-.add-btn:hover{background:rgba(201,169,110,.07);color:var(--gold);border-color:rgba(201,169,110,.5)}
-.ap-ttl{font-size:1rem;font-weight:600;color:var(--white);margin-bottom:.3rem;font-family:var(--font-serif)}
-.ap-sub{font-size:.72rem;color:rgba(255,255,255,.3);margin-bottom:1rem}
-
+.an{flex-shrink:0;background:rgba(7,23,42,.98);border-bottom:1px solid rgba(201,169,110,.12);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:56px;gap:1rem}
+.an-left{display:flex;align-items:center;gap:.75rem}
+.ab{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--gold);letter-spacing:1px}
+.an-user{display:flex;align-items:center;gap:6px;background:rgba(201,169,110,.08);border:1px solid rgba(201,169,110,.14);border-radius:999px;padding:4px 10px 4px 4px}
+.an-avatar{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold2));display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;color:var(--navy)}
+.an-uname{font-size:.72rem;color:rgba(255,255,255,.5)}
+.an-right{display:flex;align-items:center;gap:.5rem}
+.aclose{display:flex;align-items:center;gap:5px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.45);font-size:.7rem;padding:5px 12px;border-radius:4px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .16s}
+.aclose:hover{background:rgba(255,255,255,.09);color:var(--white)}
+.abody{display:flex;flex:1;overflow:hidden}
+.aside{width:210px;min-width:210px;background:#061220;border-right:1px solid rgba(201,169,110,.07);display:flex;flex-direction:column;overflow-y:auto;flex-shrink:0}
+.aside-sec{padding:.9rem .9rem .35rem;font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.2);font-weight:700}
+.amenu-item{display:flex;align-items:center;gap:8px;padding:8px 12px;cursor:pointer;transition:background .16s;border-radius:4px;margin:0 6px 2px;font-size:.75rem;color:rgba(255,255,255,.38)}
+.amenu-item svg{flex-shrink:0;opacity:.6}
+.amenu-item:hover{background:rgba(255,255,255,.05);color:rgba(255,255,255,.65)}
+.amenu-item.active{background:rgba(201,169,110,.1);color:var(--gold2)}
+.amenu-item.active svg{opacity:1}
+.amain{flex:1;overflow-y:auto}
+.apanel{display:none;padding:1.8rem 2rem 3rem}.apanel.active{display:block}
+.ap-hd{margin-bottom:1.5rem}
+.ap-hd h2{font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--white);margin-bottom:.2rem}
+.ap-hd p{font-size:.74rem;color:rgba(255,255,255,.28)}
+/* forms */
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+.fg .s2{grid-column:1/-1}
+.fdiv{grid-column:1/-1;border:none;border-top:1px solid rgba(255,255,255,.06);margin:.15rem 0}
+.fi{display:flex;flex-direction:column;gap:.26rem}
+.fi label{font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(201,169,110,.65);font-weight:600}
+.fi input,.fi select,.fi textarea{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);color:var(--white);border-radius:5px;padding:8px 10px;font-size:.81rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .16s,background .16s;width:100%}
+.fi input:focus,.fi select:focus,.fi textarea:focus{border-color:rgba(201,169,110,.38);background:rgba(255,255,255,.06)}
+.fi textarea{resize:vertical;min-height:68px}
+.fi select option{background:#09192c;color:var(--white)}
+.fi input::placeholder,.fi textarea::placeholder{color:rgba(255,255,255,.18)}
+/* file upload */
+.fupload-box{border:2px dashed rgba(201,169,110,.22);border-radius:8px;padding:1.1rem;text-align:center;cursor:pointer;transition:border-color .2s,background .2s;position:relative;margin-top:.2rem}
+.fupload-box:hover{border-color:rgba(201,169,110,.45);background:rgba(201,169,110,.04)}
+.fupload-box input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.fupload-box .fu-icon{color:var(--gold);opacity:.45;margin-bottom:.35rem}
+.fupload-box p{font-size:.74rem;color:rgba(255,255,255,.3)}
+.fupload-box span{font-size:.62rem;color:rgba(255,255,255,.18)}
+.ffile-list{display:flex;flex-direction:column;gap:.35rem;margin-top:.6rem}
+.ffile{display:flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:5px;padding:.45rem .75rem}
+.ffile svg{color:var(--gold);flex-shrink:0}
+.ffile-name{font-size:.74rem;color:rgba(255,255,255,.55);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ffile-size{font-size:.63rem;color:rgba(255,255,255,.22);flex-shrink:0}
+.ffile-del{background:none;border:none;color:rgba(255,255,255,.22);cursor:pointer;font-size:.9rem;padding:0;line-height:1;transition:color .16s}.ffile-del:hover{color:#f87171}
+/* liga list */
+.alist{display:flex;flex-direction:column;gap:.3rem;margin-bottom:.75rem}
+.ait{display:flex;align-items:center;justify-content:space-between;gap:.38rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);border-radius:5px;padding:.58rem .78rem;cursor:pointer;transition:background .16s,border-color .16s}
+.ait:hover,.ait.active{background:rgba(201,169,110,.08);border-color:rgba(201,169,110,.18)}
+.ain{font-size:.74rem;color:var(--white);font-weight:500;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.aib{font-size:.52rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:1px 5px;border-radius:999px;flex-shrink:0}
+.aib-open{background:#d1fae5;color:#065f46}.aib-soon{background:#fef3c7;color:#92400e}.aib-closed{background:#f3f4f6;color:#6b7280}
+.aadd{width:100%;display:flex;align-items:center;justify-content:center;gap:6px;background:var(--gold);color:var(--navy);border:none;border-radius:5px;padding:9px 0;font-size:.77rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .16s}
+.aadd:hover{background:var(--gold2)}
+.rlist{display:flex;flex-direction:column;gap:.32rem}.rrow{display:flex;gap:.36rem}.rrow input{flex:1}
+.rdel{background:rgba(220,38,38,.1);border:1px solid rgba(220,38,38,.17);color:#f87171;border-radius:4px;padding:0 8px;cursor:pointer;font-size:.83rem;font-family:'DM Sans',sans-serif;transition:background .16s}.rdel:hover{background:rgba(220,38,38,.2)}
+.radd{background:rgba(255,255,255,.03);border:1px dashed rgba(255,255,255,.1);color:rgba(255,255,255,.28);border-radius:4px;padding:6px;cursor:pointer;font-size:.7rem;text-align:center;font-family:'DM Sans',sans-serif;width:100%;margin-top:.18rem;transition:background .16s,color .16s}
+.radd:hover{background:rgba(201,169,110,.08);color:var(--gold);border-color:rgba(201,169,110,.2)}
+.factions{display:flex;align-items:center;justify-content:space-between;margin-top:1.4rem;flex-wrap:wrap;gap:.75rem}
+.factions-r{display:flex;gap:.5rem}
+.asave{background:var(--gold);color:var(--navy);border:none;border-radius:5px;padding:10px 22px;font-size:.8rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .16s}
+.asave:hover{background:var(--gold2)}
+.adel{background:rgba(220,38,38,.1);border:1px solid rgba(220,38,38,.17);color:#f87171;border-radius:5px;padding:9px 14px;font-size:.75rem;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .16s}
+.adel:hover{background:rgba(220,38,38,.2)}
+.acancel{background:transparent;border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.36);border-radius:5px;padding:9px 14px;font-size:.75rem;cursor:pointer;font-family:'DM Sans',sans-serif;transition:border-color .16s,color .16s}
+.acancel:hover{border-color:rgba(255,255,255,.2);color:var(--white)}
+/* content edit cards */
+.ce-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:1rem 1.1rem;margin-bottom:.7rem;display:flex;align-items:flex-start;gap:.75rem}
+.ce-body{flex:1;min-width:0;display:flex;flex-direction:column;gap:.42rem}
+.ce-body input,.ce-body textarea{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:var(--white);border-radius:5px;padding:7px 10px;font-size:.8rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .16s;width:100%}
+.ce-body input:focus,.ce-body textarea:focus{border-color:rgba(201,169,110,.38)}
+.ce-body textarea{resize:vertical;min-height:55px}
+.ce-body input::placeholder,.ce-body textarea::placeholder{color:rgba(255,255,255,.18)}
+.ce-save{background:rgba(201,169,110,.15);border:1px solid rgba(201,169,110,.25);color:var(--gold);border-radius:4px;padding:5px 12px;font-size:.7rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .16s;white-space:nowrap}
+.ce-save:hover{background:rgba(201,169,110,.28)}
+.ce-del{background:none;border:none;color:rgba(255,255,255,.2);cursor:pointer;padding:5px;border-radius:4px;transition:color .16s,background .16s;line-height:1}
+.ce-del:hover{color:#f87171;background:rgba(220,38,38,.1)}
+.ce-add-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(201,169,110,.1);border:1px solid rgba(201,169,110,.2);color:var(--gold);font-size:.74rem;font-weight:600;padding:7px 14px;border-radius:5px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .16s;margin-bottom:1rem}
+.ce-add-btn:hover{background:rgba(201,169,110,.2)}
 /* users */
-.user-card{background:rgba(255,255,255,.03);border:1px solid var(--bd2);border-radius:8px;padding:12px 14px;display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap}
-.uc-av{width:32px;height:32px;border-radius:50%;background:var(--gold2);color:var(--gold);font-size:.85rem;font-weight:700;font-family:var(--font-serif);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.uc-info{flex:1;min-width:120px}
-.uc-name{font-size:.78rem;font-weight:500;color:var(--white)}
-.uc-email{font-size:.65rem;color:rgba(255,255,255,.3)}
-.uc-role{font-size:.62rem;background:var(--gold2);color:var(--gold);padding:2px 8px;border-radius:999px;font-weight:500}
-
-/* -- TOAST ------------------------------------------ */
-#toast{position:fixed;bottom:20px;right:20px;z-index:9999;border-radius:8px;padding:10px 18px;font-size:.78rem;font-weight:500;font-family:var(--font-sans);opacity:0;transform:translateY(8px);transition:all .22s;pointer-events:none;max-width:300px}
-#toast.show{opacity:1;transform:translateY(0)}
-#toast.ok{background:#1a4731;color:#6ee7b7;border:1px solid rgba(110,231,183,.2)}
-#toast.err{background:#4a1414;color:#fc8181;border:1px solid rgba(252,129,129,.2)}
-
-/* -- SPINNER ---------------------------------------- */
-@keyframes spin{to{transform:rotate(360deg)}}
+.user-card{display:flex;align-items:center;gap:.75rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:7px;padding:.8rem 1rem;margin-bottom:.5rem}
+.uc-av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--navy2),var(--navy3));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:.85rem;color:var(--gold);font-weight:600;flex-shrink:0}
+.uc-info{flex:1;min-width:0}
+.uc-name{font-size:.79rem;font-weight:600;color:var(--white);margin-bottom:1px}
+.uc-email{font-size:.68rem;color:rgba(255,255,255,.28);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.uc-role{font-size:.58rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:2px 7px;border-radius:999px;background:rgba(201,169,110,.12);color:var(--gold);flex-shrink:0}
+.uc-del{background:none;border:none;color:rgba(255,255,255,.18);cursor:pointer;padding:5px;border-radius:4px;transition:color .16s,background .16s}
+.uc-del:hover{color:#f87171;background:rgba(220,38,38,.1)}
+.user-form-box{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:1.2rem;margin-top:1.2rem}
+.user-form-title{font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:.9rem}
+.toast{position:fixed;bottom:16px;right:16px;z-index:9999;border-radius:6px;padding:9px 16px;font-size:.77rem;box-shadow:0 5px 18px rgba(0,0,0,.2);display:none;align-items:center;gap:6px;font-family:'DM Sans',sans-serif}
+.toast.show{display:flex}.toast.ok{background:#064e3b;border:1px solid rgba(5,150,105,.26);color:#6ee7b7}.toast.err{background:#7f1d1d;border:1px solid rgba(220,38,38,.26);color:#fca5a5}
+@media(max-width:820px){:root{--sw:194px}.abody{flex-direction:column}.aside{width:100%;min-width:unset;flex-direction:row;overflow-x:auto;border-right:none;border-bottom:1px solid rgba(201,169,110,.07)}}
+@media(max-width:600px){#sb{display:none}#main{width:100%}.hero,.ad-section,.home-news,.home-ev,.mission,.pc,.ph,.lbar{padding-left:5vw;padding-right:5vw}.fg{grid-template-columns:1fr}.fg .s2{grid-column:1}.li-dl{display:none}.li-name{font-size:.92rem}}
 </style>
 </head>
 <body>
 
-<!-- ---- SIDEBAR ---- -->
+<!-- SIDEBAR -->
 <div id="sb">
   <div class="sb-top">
     <div class="sb-logo">CA</div>
-    <div class="sb-txt"><strong>CA · FSL</strong><span>Centro Acadêmico</span></div>
+    <div class="sb-txt"><strong>CA · HSL</strong><span>Centro Acadêmico</span></div>
   </div>
-
   <div class="sb-atalhos">
     <div class="sb-atalhos-lbl">Acesso Rápido</div>
-    <button class="at" data-goto="ligas">
-      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-      Inscrição em Ligas
-    </button>
-    <button class="at" data-goto="agenda">
-      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-      Próximos Eventos
-    </button>
-    <button class="at at-adm" id="btn-admin">
-      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-      Área Admin
-    </button>
+    <a class="at" data-goto="ligas"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>Inscrição em Ligas</a>
+    <a class="at" data-goto="agenda"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Próximos Eventos</a>
+    <a class="at at-adm" id="btn-admin"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Área Admin</a>
   </div>
-
-  <div class="sb-lbl" style="margin-top:8px">Navegação</div>
-  <nav style="padding:4px 10px;display:flex;flex-direction:column;gap:2px">
-    <div class="ni active" id="nav-home" data-goto="home">
-      <svg class="nico" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      <span class="nl">Início</span>
-    </div>
-    <div class="ni" id="nav-ligas" data-goto="ligas">
-      <svg class="nico" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-      <span class="nl">Ligas Acadêmicas</span>
-      <span class="nb" id="lgbadge">0</span>
-    </div>
-    <div class="ni" id="nav-noticias" data-goto="noticias">
-      <svg class="nico" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2-2v-4"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8z"/></svg>
-      <span class="nl">Notícias & CA</span>
-    </div>
-    <div class="ni" id="nav-agenda" data-goto="agenda">
-      <svg class="nico" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-      <span class="nl">Agenda & Eventos</span>
-    </div>
-    <div class="ni" id="nav-beneficios" data-goto="beneficios">
-      <svg class="nico" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      <span class="nl">Benefícios do CA</span>
-    </div>
-    <div class="ni" id="nav-comunicacao" data-goto="comunicacao">
-      <svg class="nico" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-      <span class="nl">Comunicação</span>
-    </div>
-    <div class="ni" id="nav-diretoria" data-goto="diretoria">
-      <svg class="nico" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-      <span class="nl">Diretoria & Contato</span>
-    </div>
+  <div class="sb-lbl">Navegação</div>
+  <nav class="sb-nav">
+    <div class="ni active" id="nav-home" data-goto="home"><svg class="nico" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span class="nl">Início</span></div>
+    <div class="ni" id="nav-ligas" data-goto="ligas"><svg class="nico" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg><span class="nl">Ligas Acadêmicas</span><span class="nb" id="lgbadge">0</span></div>
+    <div class="ni" id="nav-noticias" data-goto="noticias"><svg class="nico" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/></svg><span class="nl">Notícias & CA</span></div>
+    <div class="ni" id="nav-agenda" data-goto="agenda"><svg class="nico" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span class="nl">Agenda & Eventos</span></div>
+    <div class="ni" id="nav-beneficios" data-goto="beneficios"><svg class="nico" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span class="nl">Benefícios do CA</span></div>
+    <div class="ni" id="nav-comunicacao" data-goto="comunicacao"><svg class="nico" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span class="nl">Comunicação</span></div>
+    <div class="ni" id="nav-diretoria" data-goto="diretoria"><svg class="nico" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><span class="nl">Diretoria & Contato</span></div>
   </nav>
-
-  <div class="sb-motto">
-    <p>"Convivendo e compartilhando, promover e entregar valor em saúde no seu mais amplo sentido."</p>
-    <small>Faculdade Sírio-Libanês · Desde 1921</small>
-  </div>
+  <div class="sb-motto"><p>"Convivendo e compartilhando, promover e entregar valor em saúde no seu mais amplo sentido."</p><small>Hospital Sírio-Libanês · Desde 1921</small></div>
 </div>
 
-<!-- ---- MAIN ---- -->
+<!-- MAIN -->
 <div id="main">
-
   <!-- HOME -->
   <div id="page-home" class="page active">
     <div class="hero">
-      <div class="hero-tag">Centro Acadêmico · Faculdade Sírio-Libanês</div>
-      <h1>Onde a medicina<br>encontra <em>propósito</em></h1>
-      <p class="hero-sub">O CA·FSL conecta estudantes de medicina ao que há de melhor no FSL: pesquisa, ligas acadêmicas, eventos e comunidade.</p>
-      <div class="hero-badges">
-        <span class="hb hb-g"><span id="hs-ligas">0</span> Ligas Ativas</span>
-        <span class="hb hb-w">Faculdade Sírio-Libanês</span>
-        <span class="hb hb-w">Filantropia desde 1921</span>
+      <div class="h-eyebrow"><span class="ln"></span>Centro Acadêmico · Hospital Sírio-Libanês</div>
+      <h1>Convivendo e<br>compartilhando,<br><em>cuidamos melhor</em></h1>
+      <p class="hero-lema">"Quanto maior a convivência, mais humanos ficamos — mais queremos compartilhar nosso aprendizado."</p>
+      <p class="hero-sub">— Faculdade Sírio-Libanês</p>
+      <div class="hero-ctas">
+        <button class="cta cta-p" data-goto="ligas">Ver Ligas Abertas</button>
+        <button class="cta cta-s" data-goto="agenda">Agenda 2025</button>
+        <button class="cta cta-s" data-goto="diretoria">Fale com o CA</button>
+      </div>
+      <div class="hero-stats">
+        <div class="hs"><div class="num" id="hs-ligas">0</div><div class="lbl">Ligas Ativas</div></div>
+        <div class="hs"><div class="num">120+</div><div class="lbl">Estudantes</div></div>
+        <div class="hs"><div class="num">8</div><div class="lbl">Projetos 2025</div></div>
       </div>
     </div>
-
-    <div class="valores-strip">
-      <div class="vs-item"><div class="vs-dot"></div><span class="vs-txt">SER</span></div>
-      <div class="vs-div"></div>
-      <div class="vs-item"><div class="vs-dot"></div><span class="vs-txt">Solidariedade</span></div>
-      <div class="vs-div"></div>
-      <div class="vs-item"><div class="vs-dot"></div><span class="vs-txt">Excelência</span></div>
-      <div class="vs-div"></div>
-      <div class="vs-item"><div class="vs-dot"></div><span class="vs-txt">Resultado</span></div>
-      <div class="vs-div"></div>
-      <div class="vs-item"><div class="vs-dot"></div><span class="vs-txt">Assistência</span></div>
-      <div class="vs-div"></div>
-      <div class="vs-item"><div class="vs-dot"></div><span class="vs-txt">Ensino</span></div>
-      <div class="vs-div"></div>
-      <div class="vs-item"><div class="vs-dot"></div><span class="vs-txt">Pesquisa</span></div>
-      <div class="vs-div"></div>
-      <div class="vs-item"><div class="vs-dot"></div><span class="vs-txt">Calor Humano</span></div>
+    <div class="vstrip">
+      <div class="vi"><span class="vd"></span><span>SER: Solidariedade · Excelência · Resultado</span></div>
+      <div class="vi"><span class="vd"></span><span>Assistência · Ensino · Pesquisa</span></div>
+      <div class="vi"><span class="vd"></span><span>Filantropia desde 1921</span></div>
+      <div class="vi"><span class="vd"></span><span>Calor Humano</span></div>
+      <div class="vi"><span class="vd"></span><span>Pioneirismo & Inovação</span></div>
     </div>
-
-    <div class="sec">
-      <div class="sec-hd"><h2 class="sec-ttl">Acesso Direto</h2><div class="sec-line"></div></div>
-      <div class="home-grid">
-        <div class="hg-card" data-goto="ligas">
-          <div class="hg-ico"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
-          <div class="hg-ttl">Ligas Acadêmicas</div>
-          <div class="hg-sub">Inscreva-se e participe</div>
-        </div>
-        <div class="hg-card" data-goto="agenda">
-          <div class="hg-ico"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-          <div class="hg-ttl">Agenda & Eventos</div>
-          <div class="hg-sub">Fique por dentro</div>
-        </div>
-        <div class="hg-card" data-goto="beneficios">
-          <div class="hg-ico"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-          <div class="hg-ttl">Benefícios do CA</div>
-          <div class="hg-sub">Vantagens exclusivas</div>
-        </div>
-        <div class="hg-card" data-goto="diretoria">
-          <div class="hg-ico"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
-          <div class="hg-ttl">Diretoria & Contato</div>
-          <div class="hg-sub">Conheça o time</div>
-        </div>
+    <div class="ad-section">
+      <div class="sec-hd"><h2>Acesse diretamente</h2></div>
+      <div class="tiles">
+        <div class="tile hl" data-goto="ligas"><div class="tile-ico"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div><h3>Ligas Acadêmicas</h3><p>Editais abertos e inscrições.</p><div class="tile-arr">Inscrever-se →</div></div>
+        <div class="tile" data-goto="agenda"><div class="tile-ico"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><h3>Agenda & Eventos</h3><p>Datas do calendário 2025.</p><div class="tile-arr">Ver agenda →</div></div>
+        <div class="tile" data-goto="noticias"><div class="tile-ico"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/></svg></div><h3>Notícias & CA</h3><p>Comunicados do Centro Acadêmico.</p><div class="tile-arr">Ver notícias →</div></div>
+        <div class="tile" data-goto="beneficios"><div class="tile-ico"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><h3>Benefícios</h3><p>Exclusivo para membros do CA.</p><div class="tile-arr">Ver benefícios →</div></div>
+        <div class="tile" data-goto="diretoria"><div class="tile-ico"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><h3>Diretoria & Contato</h3><p>Quem dirige o CA.</p><div class="tile-arr">Ver diretoria →</div></div>
+        <div class="tile" data-goto="comunicacao"><div class="tile-ico"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>Comunicação</h3><p>Campanhas e publicações.</p><div class="tile-arr">Ver publicações →</div></div>
       </div>
-
-      <div class="sec-hd"><h2 class="sec-ttl">Últimas Notícias</h2><div class="sec-line"></div></div>
+    </div>
+    <div class="home-news">
+      <div class="sec-hd"><h2>Últimas Notícias</h2><a data-goto="noticias">Ver todas →</a></div>
       <div class="news-grid" id="home-news-grid"></div>
-
-      <div class="sec-hd" style="margin-top:2rem"><h2 class="sec-ttl">Próximos Eventos</h2><div class="sec-line"></div></div>
-      <div id="home-ev-row"></div>
     </div>
-
-    <div class="miss-banner">
-      <blockquote>"Servir à nação, fazer obra útil à humanidade"</blockquote>
-      <cite>— Adma Jafet, fundadora · 1931</cite>
+    <div class="home-ev">
+      <div class="sec-hd"><h2>Próximos Eventos</h2><a data-goto="agenda">Agenda completa →</a></div>
+      <div class="ev-row" id="home-ev-row"></div>
+    </div>
+    <div class="mission">
+      <div class="ms-left"><span class="mtag">Missão Institucional · Sírio-Libanês</span><blockquote>"Servir à <span>nação</span>, fazer obra útil<br>à <span>humanidade</span>."</blockquote><p class="mfonte">— Adma Jafet, fundadora, 1931</p></div>
+      <div class="ms-right">
+        <div class="mv"><span class="mvd"></span><div><h4>SER: Solidariedade, Excelência e Resultado</h4><p>Os três pilares que guiam cada ação do HSL.</p></div></div>
+        <div class="mv"><span class="mvd"></span><div><h4>Assistência, Ensino e Pesquisa</h4><p>Ciclo virtuoso que sustenta a filantropia desde 1921.</p></div></div>
+        <div class="mv"><span class="mvd"></span><div><h4>Vida plena e digna para mais pessoas</h4><p>Propósito que se renova a cada vida acolhida.</p></div></div>
+      </div>
     </div>
   </div>
 
   <!-- LIGAS -->
   <div id="page-ligas" class="page">
-    <div class="sec">
-      <div class="sec-hd"><h2 class="sec-ttl">Ligas Acadêmicas</h2><div class="sec-line"></div></div>
-      <div class="liga-stats">
-        <div class="ls-chip"><div class="ls-n" id="lb-total">0</div><div class="ls-l">Total</div></div>
-        <div class="ls-chip"><div class="ls-n" id="lb-open">0</div><div class="ls-l">Abertas</div></div>
-        <div class="ls-chip"><div class="ls-n" id="lb-vagas">0</div><div class="ls-l">Vagas</div></div>
-      </div>
-      <div class="liga-filter">
+    <div class="ph"><div class="ph-tag">Ligas Acadêmicas · HSL</div><h1>Editais de Inscrição</h1><p>Clique em uma liga para ver o edital completo, requisitos e realizar sua inscrição.</p></div>
+    <div class="lbar">
+      <div class="lstat"><strong id="lb-total">0</strong>&nbsp;ligas</div><div class="lsep"></div>
+      <div class="lstat"><strong id="lb-open">0</strong>&nbsp;abertas</div><div class="lsep"></div>
+      <div class="lstat"><strong id="lb-vagas">0</strong>&nbsp;vagas disponíveis</div>
+      <div class="lfilter">
         <button class="fbtn active" data-filter="all">Todas</button>
         <button class="fbtn" data-filter="open">Abertas</button>
-        <button class="fbtn" data-filter="soon">Em Breve</button>
+        <button class="fbtn" data-filter="soon">Em breve</button>
         <button class="fbtn" data-filter="closed">Encerradas</button>
       </div>
-      <div id="leaguesList"></div>
     </div>
+    <div class="pc"><div id="leaguesList"></div></div>
   </div>
 
   <!-- NOTÍCIAS -->
   <div id="page-noticias" class="page">
-    <div class="sec">
-      <div class="sec-hd"><h2 class="sec-ttl">Notícias & CA</h2><div class="sec-line"></div></div>
-      <div id="news-list"></div>
-    </div>
+    <div class="ph"><div class="ph-tag">CA·HSL · Comunicados</div><h1>Notícias & CA</h1><p>Acompanhe comunicados, conquistas e novidades do Centro Acadêmico.</p></div>
+    <div class="pc"><div class="news-full" id="news-list"></div></div>
   </div>
 
   <!-- AGENDA -->
   <div id="page-agenda" class="page">
-    <div class="sec">
-      <div class="sec-hd"><h2 class="sec-ttl">Agenda & Eventos</h2><div class="sec-line"></div></div>
-      <div class="ag-grid" id="agenda-grid"></div>
-    </div>
+    <div class="ph"><div class="ph-tag">CA·HSL · Calendário</div><h1>Agenda & Eventos</h1><p>Palestras, simpósios e datas importantes do calendário acadêmico 2025.</p></div>
+    <div class="pc"><div class="ag-grid" id="agenda-grid"></div></div>
   </div>
 
   <!-- BENEFÍCIOS -->
   <div id="page-beneficios" class="page">
-    <div class="sec">
-      <div class="sec-hd"><h2 class="sec-ttl">Benefícios do CA</h2><div class="sec-line"></div></div>
-      <div class="ben-grid" id="ben-grid"></div>
-    </div>
+    <div class="ph"><div class="ph-tag">CA·HSL · Exclusivo</div><h1>Benefícios do CA</h1><p>Vantagens disponíveis para todos os membros do Centro Acadêmico.</p></div>
+    <div class="pc"><div class="ben" id="ben-grid"></div></div>
   </div>
 
   <!-- COMUNICAÇÃO -->
   <div id="page-comunicacao" class="page">
-    <div class="sec">
-      <div class="sec-hd"><h2 class="sec-ttl">Comunicação</h2><div class="sec-line"></div></div>
-      <div class="comm-grid" id="comm-grid"></div>
+    <div class="ph"><div class="ph-tag">CA·HSL · Mídia</div><h1>Comunicação</h1><p>Campanhas, publicações e materiais produzidos pelo CA·HSL.</p></div>
+    <div class="pc">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:.9rem" id="comm-grid"></div>
     </div>
   </div>
 
   <!-- DIRETORIA -->
   <div id="page-diretoria" class="page">
-    <div class="sec">
-      <div class="sec-hd"><h2 class="sec-ttl">Diretoria</h2><div class="sec-line"></div></div>
-      <div class="dir-grid" id="dir-grid"></div>
-      <div class="contact-box">
-        <h3>Fale com o CA</h3>
-        <div id="contact-fields"></div>
+    <div class="ph"><div class="ph-tag">CA·HSL · Gestão 2025</div><h1>Diretoria & Contato</h1><p>Conheça a diretoria eleita e como entrar em contato com o Centro Acadêmico.</p></div>
+    <div class="pc">
+      <p style="font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:1.3rem">Gestão 2025 – 2026</p>
+      <div class="dir" id="dir-grid" style="margin-bottom:2rem"></div>
+      <div class="ctbox">
+        <div class="ctinfo"><span class="stag">Fale com o CA</span><h3>Contato</h3><p>Dúvidas, sugestões ou parcerias? Fale conosco.</p></div>
+        <div class="ctfields" id="contact-fields"></div>
       </div>
     </div>
   </div>
+</div><!-- /main -->
 
-</div><!-- /#main -->
-
-<!-- ---- LOGIN ---- -->
+<!-- LOGIN OVERLAY -->
 <div class="lov" id="loginOv">
   <div class="lbox">
     <div class="lbox-logo">CA</div>
-    <h2>Área Admin</h2>
-    <p class="lsub">Acesso restrito à equipe do CA·FSL</p>
-    <div class="lf">
-      <label>E-mail</label>
-      <input type="email" id="lemail" placeholder="seu@email.com" autocomplete="email"/>
-    </div>
-    <div class="lf">
-      <label>Senha</label>
-      <input type="password" id="lpwd" placeholder="••••••••" autocomplete="current-password"/>
-    </div>
-    <p class="lerr" id="lerr"></p>
+    <h2>Área Administrativa</h2>
+    <p class="lsub">Acesso restrito à diretoria do CA·HSL</p>
+    <div class="lf"><label>E-mail</label><input type="email" id="lemail" placeholder="seu@email.com" autocomplete="email"/></div>
+    <div class="lf"><label>Senha</label><input type="password" id="lpwd" placeholder="••••••••" autocomplete="current-password"/></div>
+    <p class="lerr" id="lerr">E-mail ou senha incorretos.</p>
     <button class="lsub-btn" id="btn-doLogin">Entrar</button>
-    <button class="lforgot-btn" id="btn-showForgot">Esqueci minha senha</button>
-    <button class="lcancel-btn" id="btn-closeLogin">Cancelar</button>
+    <button class="lcancel" id="btn-closeLogin">Cancelar</button>
   </div>
 </div>
 
-<!-- ---- RESET PASSWORD ---- -->
-<div class="lov" id="resetOv">
-  <div class="lbox">
-    <div class="lbox-logo">CA</div>
-    <h2>Recuperar Senha</h2>
-    <p class="lsub">Enviaremos um link de redefinição para o seu e-mail cadastrado</p>
-    <div class="lf">
-      <label>E-mail cadastrado</label>
-      <input type="email" id="reset-email" placeholder="seu@email.com" autocomplete="email"/>
-    </div>
-    <p class="lerr" id="reset-err"></p>
-    <p id="reset-ok" style="font-size:.74rem;color:#6ee7b7;text-align:center;display:none;margin-bottom:.5rem">✓ E-mail enviado! Verifique sua caixa de entrada.</p>
-    <button class="lsub-btn" id="btn-doReset">Enviar link de recuperação</button>
-    <button class="lcancel-btn" id="btn-closeReset">← Voltar ao login</button>
-  </div>
-</div>
-
-<!-- ---- ADMIN ---- -->
+<!-- ADMIN PANEL -->
 <div id="adm">
-  <div class="an">
-    <span class="an-logo">CA·FSL Admin</span>
-    <div class="an-sep"></div>
-    <div class="an-user">
-      <div id="an-avatar">A</div>
-      <span id="an-uname"></span>
-    </div>
-    <button class="an-btn" id="btn-logout">Sair</button>
-    <button class="an-btn an-close" id="btn-closeAdmin">Fechar</button>
-  </div>
-  <div class="adm-body">
-    <div class="amenu">
-      <div class="amenu-item active" data-apanel="ligas">
-        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-        Ligas
-      </div>
-      <div class="amenu-item" data-apanel="noticias">
-        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        Notícias
-      </div>
-      <div class="amenu-item" data-apanel="agenda">
-        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        Agenda
-      </div>
-      <div class="amenu-item" data-apanel="beneficios">
-        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        Benefícios
-      </div>
-      <div class="amenu-item" data-apanel="comunicacao">
-        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        Comunicação
-      </div>
-      <div class="amenu-item" data-apanel="diretoria">
-        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-        Diretoria
-      </div>
-      <div class="amenu-item" data-apanel="usuarios">
-        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
-        Usuários
+  <nav class="an">
+    <div class="an-left">
+      <span class="ab">CA·HSL Admin</span>
+      <div class="an-user">
+        <div class="an-avatar" id="an-avatar">?</div>
+        <span class="an-uname" id="an-uname">—</span>
       </div>
     </div>
-    <div class="acontent">
+    <div class="an-right">
+      <button class="aclose" id="btn-logout" style="border-color:rgba(201,169,110,.15);color:rgba(201,169,110,.5)">
+        <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>Sair
+      </button>
+      <button class="aclose" id="btn-closeAdmin">
+        <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>Fechar
+      </button>
+    </div>
+  </nav>
+  <div class="abody">
+    <!-- Sidebar -->
+    <div class="aside">
+      <div class="aside-sec">Conteúdo</div>
+      <div class="amenu-item active" data-apanel="ligas"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>Ligas Acadêmicas</div>
+      <div class="amenu-item" data-apanel="noticias"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/></svg>Notícias</div>
+      <div class="amenu-item" data-apanel="agenda"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Agenda</div>
+      <div class="amenu-item" data-apanel="beneficios"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Benefícios</div>
+      <div class="amenu-item" data-apanel="diretoria"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Diretoria</div>
+      <div class="amenu-item" data-apanel="comunicacao"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Comunicação</div>
+      <div class="aside-sec">Sistema</div>
+      <div class="amenu-item" data-apanel="usuarios"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>Usuários Admin</div>
+    </div>
 
-      <!-- LIGAS -->
+    <!-- Main Content -->
+    <div class="amain">
+
+      <!-- Ligas -->
       <div class="apanel active" id="apanel-ligas">
-        <div class="alig-layout">
-          <div class="alist-wrap">
-            <div class="alist-hd">
-              <span>Ligas</span>
-              <button class="anew-btn" id="btn-newLiga">+ Nova</button>
-            </div>
-            <div id="alist"></div>
+        <div class="ap-hd"><h2>Ligas Acadêmicas</h2><p>Gerencie ligas, editais e anexos.</p></div>
+        <div style="display:flex;gap:1.2rem;flex-wrap:wrap">
+          <div style="flex:0 0 200px">
+            <div class="alist" id="alist"></div>
+            <button class="aadd" id="btn-newForm">
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Nova Liga
+            </button>
           </div>
-          <div class="aform-wrap">
-            <div id="liga-welc" style="display:flex">
-              <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-              <p>Selecione uma liga ou crie uma nova</p>
+          <div style="flex:1;min-width:280px">
+            <div id="liga-welc" style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:180px;color:rgba(255,255,255,.2);text-align:center;padding:1.5rem">
+              <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24" style="opacity:.15;margin-bottom:.6rem"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 12h6M12 9v6"/></svg>
+              <p style="font-size:.78rem">Selecione uma liga ou crie uma nova</p>
             </div>
             <div id="aform" style="display:none"></div>
           </div>
         </div>
       </div>
 
-      <!-- NOTÍCIAS -->
+      <!-- Notícias -->
       <div class="apanel" id="apanel-noticias">
-        <div class="ap-ttl">Notícias</div>
-        <div class="ap-sub">Gerencie as notícias exibidas no site</div>
-        <div class="ce-list" id="news-editor"></div>
-        <button class="add-btn" id="btn-add-news">+ Adicionar Notícia</button>
+        <div class="ap-hd"><h2>Notícias & CA</h2><p>Adicione, edite ou remova notícias.</p></div>
+        <button class="ce-add-btn" id="btn-add-news">
+          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Nova Notícia
+        </button>
+        <div id="news-editor"></div>
       </div>
 
-      <!-- AGENDA -->
+      <!-- Agenda -->
       <div class="apanel" id="apanel-agenda">
-        <div class="ap-ttl">Agenda & Eventos</div>
-        <div class="ap-sub">Gerencie os eventos do calendário</div>
-        <div class="ce-list" id="agenda-editor"></div>
-        <button class="add-btn" id="btn-add-ev">+ Adicionar Evento</button>
+        <div class="ap-hd"><h2>Agenda & Eventos</h2><p>Gerencie o calendário de eventos.</p></div>
+        <button class="ce-add-btn" id="btn-add-ev">
+          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Novo Evento
+        </button>
+        <div id="agenda-editor"></div>
       </div>
 
-      <!-- BENEFÍCIOS -->
+      <!-- Benefícios -->
       <div class="apanel" id="apanel-beneficios">
-        <div class="ap-ttl">Benefícios do CA</div>
-        <div class="ap-sub">Gerencie os benefícios listados</div>
-        <div class="ce-list" id="ben-editor"></div>
-        <button class="add-btn" id="btn-add-ben">+ Adicionar Benefício</button>
+        <div class="ap-hd"><h2>Benefícios do CA</h2><p>Edite os benefícios exibidos no site.</p></div>
+        <button class="ce-add-btn" id="btn-add-ben">
+          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Novo Benefício
+        </button>
+        <div id="ben-editor"></div>
       </div>
 
-      <!-- COMUNICAÇÃO -->
-      <div class="apanel" id="apanel-comunicacao">
-        <div class="ap-ttl">Comunicação</div>
-        <div class="ap-sub">Gerencie as campanhas e comunicados</div>
-        <div class="ce-list" id="comm-editor"></div>
-        <button class="add-btn" id="btn-add-comm">+ Adicionar Campanha</button>
-      </div>
-
-      <!-- DIRETORIA -->
+      <!-- Diretoria -->
       <div class="apanel" id="apanel-diretoria">
-        <div class="ap-ttl">Diretoria</div>
-        <div class="ap-sub">Membros da diretoria</div>
-        <div class="ce-list" id="dir-editor"></div>
-        <button class="add-btn" id="btn-add-dir">+ Adicionar Membro</button>
-        <div style="margin-top:1.5rem">
-          <div class="ap-ttl" style="font-size:.85rem">Contato</div>
-          <div class="ce-list" id="contact-editor"></div>
-          <button class="add-btn" id="btn-add-contact">+ Adicionar Campo</button>
-        </div>
+        <div class="ap-hd"><h2>Diretoria & Contato</h2><p>Atualize membros e informações de contato.</p></div>
+        <button class="ce-add-btn" id="btn-add-dir">
+          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Novo Membro
+        </button>
+        <div id="dir-editor"></div>
+        <div class="ap-hd" style="margin-top:1.5rem"><h2 style="font-size:1rem">Informações de Contato</h2><p>Edite os canais de contato exibidos no rodapé da diretoria.</p></div>
+        <div id="contact-editor"></div>
       </div>
 
-      <!-- USUÁRIOS -->
+      <!-- Comunicação -->
+      <div class="apanel" id="apanel-comunicacao">
+        <div class="ap-hd"><h2>Comunicação</h2><p>Gerencie campanhas e publicações exibidas no site.</p></div>
+        <button class="ce-add-btn" id="btn-add-comm">
+          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Nova Publicação
+        </button>
+        <div id="comm-editor"></div>
+      </div>
+
+      <!-- Usuários -->
       <div class="apanel" id="apanel-usuarios">
-        <div class="ap-ttl">Usuários Admin</div>
-        <div class="ap-sub">Gerencie os acessos ao painel administrativo</div>
+        <div class="ap-hd"><h2>Usuários Admin</h2><p>Gerencie os acessos à área administrativa.</p></div>
         <div id="users-list"></div>
-        <div style="background:rgba(255,255,255,.03);border:1px solid var(--bd2);border-radius:8px;padding:14px;margin-top:10px">
-          <div style="font-size:.78rem;color:rgba(255,255,255,.5);margin-bottom:10px;font-weight:500">Adicionar Usuário</div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px">
-            <input id="u-name" placeholder="Nome" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#fff;border-radius:5px;padding:7px 10px;font-size:.76rem;font-family:inherit;outline:none"/>
-            <input id="u-email" type="email" placeholder="E-mail" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#fff;border-radius:5px;padding:7px 10px;font-size:.76rem;font-family:inherit;outline:none"/>
-            <input id="u-pwd" type="password" placeholder="Senha (mín. 6)" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#fff;border-radius:5px;padding:7px 10px;font-size:.76rem;font-family:inherit;outline:none"/>
-            <input id="u-role" placeholder="Cargo (ex: Admin)" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#fff;border-radius:5px;padding:7px 10px;font-size:.76rem;font-family:inherit;outline:none"/>
+        <div class="user-form-box">
+          <div class="user-form-title">Adicionar Novo Usuário</div>
+          <div class="fg">
+            <div class="fi"><label>Nome</label><input type="text" id="u-name" placeholder="Nome completo"/></div>
+            <div class="fi"><label>E-mail</label><input type="email" id="u-email" placeholder="email@dominio.com"/></div>
+            <div class="fi"><label>Senha</label><input type="password" id="u-pwd" placeholder="Mín. 6 caracteres"/></div>
+            <div class="fi"><label>Cargo / Função</label><input type="text" id="u-role" placeholder="Ex: Presidência, TI…"/></div>
           </div>
-          <button class="add-btn" id="btn-add-user">+ Criar Usuário no Firebase</button>
+          <div style="margin-top:.9rem"><button class="asave" id="btn-add-user">Adicionar Usuário</button></div>
         </div>
       </div>
 
@@ -716,599 +577,637 @@ body{font-family:var(--font-sans);background:var(--cream);color:var(--text);disp
   </div>
 </div>
 
-<!-- TOAST -->
-<div id="toast"></div>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<div class="toast" id="toast"></div>
 
 <script>
-// ============================================================
-//  FIREBASE INIT
-// ============================================================
-// Firebase desabilitado - usa localStorage
-var fbAuth = null, fbDb = null;
-var firebaseConfig = null; // mantido para referencia
+(function(){
+'use strict';
 
-// ============================================================
-//  ESTADO
-// ============================================================
-var COLS = ['leagues','news','agenda','benefits','communications','diretoria','contact'];
-var ST = { leagues:[], news:[], agenda:[], benefits:[], communications:[], diretoria:[], contact:[] };
-var currentUser = null, selLigaId = null, pendingFiles = {}, adminUsers = [], _ri = 100, CF = 'all';
+// ─── STORAGE ────────────────────────────────────────────
+var SK='cahsl_v8';
+function loadSt(){try{var r=localStorage.getItem(SK);if(r)return JSON.parse(r);}catch(e){}return null;}
+function saveSt(d){try{localStorage.setItem(SK,JSON.stringify(d));}catch(e){}}
 
-// ============================================================
-//  DADOS PADRAO
-// ============================================================
-var DEF = {
+var DEF={
   leagues:[
-    {id:'l1',name:'Liga Humanit\u00e1ria Ubuntu',area:'Medicina Humanit\u00e1ria',status:'open',vacancies:16,deadline:'30 mai 2025',period:'Ago 2025-Jul 2026',description:'Liga voltada \u00e0 promo\u00e7\u00e3o da sa\u00fade em comunidades vulner\u00e1veis, inspirada na filosofia Ubuntu.',requirements:['Cursando qualquer ano de medicina','Disponibilidade de 6h semanais','Carta de motiva\u00e7\u00e3o'],activities:'Expedi\u00e7\u00f5es a comunidades remotas, campanhas de sa\u00fade.',editalUrl:'#',formUrl:'#',files:[]},
-    {id:'l2',name:'Liga de Infectologia e Imunologia',area:'Infectologia - Imunologia',status:'open',vacancies:14,deadline:'28 mai 2025',period:'Ago 2025-Jul 2026',description:'Aborda doen\u00e7as infecciosas e mecanismos imunol\u00f3gicos com \u00eanfase em microbiologia cl\u00ednica.',requirements:['A partir do 3. ano','Disponibilidade de 8h semanais'],activities:'Visitas \u00e0 CCIH do FSL.',editalUrl:'#',formUrl:'#',files:[]},
-    {id:'l3',name:'Liga de Anatomia',area:'Anatomia',status:'open',vacancies:20,deadline:'01 jun 2025',period:'Ago 2025-Jul 2026',description:'Aprofundamento do estudo morfol\u00f3gico humano por meio de aulas pr\u00e1ticas.',requirements:['A partir do 1. ano'],activities:'Aulas pr\u00e1ticas, dissec\u00e7\u00f5es supervisionadas.',editalUrl:'#',formUrl:'#',files:[]},
-    {id:'l4',name:'Liga de Medicina Humanizada',area:'Humaniza\u00e7\u00e3o em Sa\u00fade',status:'open',vacancies:18,deadline:'25 mai 2025',period:'Ago 2025-Jul 2026',description:'Promove a reflex\u00e3o sobre a rela\u00e7\u00e3o m\u00e9dico-paciente e o cuidado integral.',requirements:['Cursando qualquer ano'],activities:'Grupos de estudo em \u00e9tica m\u00e9dica.',editalUrl:'#',formUrl:'#',files:[]},
-    {id:'l5',name:'Liga Interdisciplinar de Cardiologia',area:'Cardiologia',status:'soon',vacancies:15,deadline:'15 jun 2025',period:'Set 2025-Ago 2026',description:'Estuda doen\u00e7as cardiovasculares integrando cardiologia cl\u00ednica e ecocardiografia.',requirements:['A partir do 3. ano'],activities:'ECG supervisionados, journal clubs.',editalUrl:'#',formUrl:'#',files:[]},
-    {id:'l6',name:'Liga de Neurologia',area:'Neurologia',status:'soon',vacancies:12,deadline:'20 jun 2025',period:'Set 2025-Ago 2026',description:'Integra bases anat\u00f4micas do SN com abordagem cl\u00ednica das s\u00edndromes neurol\u00f3gicas.',requirements:['A partir do 2. ano'],activities:'Aulas em neuro-UTI, leituras de EEG.',editalUrl:'#',formUrl:'#',files:[]}
+    {id:1,name:'Liga Humanitária Ubuntu',area:'Medicina Humanitária',status:'open',vacancies:16,deadline:'30 mai 2025',period:'Ago 2025 – Jul 2026',description:'Liga voltada à promoção da saúde em comunidades vulneráveis, inspirada na filosofia Ubuntu.',requirements:['Cursando qualquer ano de medicina','Disponibilidade de 6h semanais','Carta de motivação'],activities:'Expedições a comunidades remotas, campanhas de saúde, parceria com ONGs.',editalUrl:'#',formUrl:'#',files:[]},
+    {id:2,name:'Liga de Infectologia e Imunologia',area:'Infectologia · Imunologia',status:'open',vacancies:14,deadline:'28 mai 2025',period:'Ago 2025 – Jul 2026',description:'Aborda doenças infecciosas e mecanismos imunológicos com ênfase em microbiologia clínica.',requirements:['A partir do 3.º ano','Disponibilidade de 8h semanais','Vacinação em dia'],activities:'Visitas à CCIH do HSL, discussão de antibiogramas, casos clínicos.',editalUrl:'#',formUrl:'#',files:[]},
+    {id:3,name:'Liga de Anatomia',area:'Anatomia',status:'open',vacancies:20,deadline:'01 jun 2025',period:'Ago 2025 – Jul 2026',description:'Aprofundamento do estudo morfológico humano por meio de aulas práticas e dissecção.',requirements:['A partir do 1.º ano','Disponibilidade de 6h semanais'],activities:'Aulas práticas em laboratório, dissecções supervisionadas.',editalUrl:'#',formUrl:'#',files:[]},
+    {id:4,name:'Liga de Medicina Humanizada',area:'Humanização em Saúde',status:'open',vacancies:18,deadline:'25 mai 2025',period:'Ago 2025 – Jul 2026',description:'Promove a reflexão sobre a relação médico-paciente e o cuidado integral.',requirements:['Cursando qualquer ano','Disponibilidade de 6h semanais'],activities:'Grupos de estudo em ética médica, voluntariado hospitalar.',editalUrl:'#',formUrl:'#',files:[]},
+    {id:5,name:'Liga Interdisciplinar de Cardiologia',area:'Cardiologia',status:'soon',vacancies:15,deadline:'15 jun 2025',period:'Set 2025 – Ago 2026',description:'Estuda doenças cardiovasculares integrando cardiologia clínica, ecocardiografia e hemodinâmica.',requirements:['A partir do 3.º ano','Disponibilidade de 8h semanais'],activities:'ECG supervisionados, journal clubs mensais.',editalUrl:'#',formUrl:'#',files:[]},
+    {id:6,name:'Liga de Neurologia e Neuroanatomia',area:'Neurologia',status:'soon',vacancies:12,deadline:'20 jun 2025',period:'Set 2025 – Ago 2026',description:'Integra bases anatômicas do SN com abordagem clínica das principais síndromes neurológicas.',requirements:['A partir do 2.º ano','Disponibilidade de 8h semanais'],activities:'Aulas em neuro-UTI, leituras de EEG e RM.',editalUrl:'#',formUrl:'#',files:[]}
   ],
   news:[
-    {id:'n1',day:'15',mon:'Mai',tag:'Liga',tc:'t-liga',title:'Inscri\u00e7\u00f5es abertas - Liga de Cardiologia 2025',text:'15 vagas dispon\u00edveis. Inscri\u00e7\u00f5es at\u00e9 30 de maio.'},
-    {id:'n2',day:'10',mon:'Mai',tag:'CA',tc:'t-ca',title:'Nova gest\u00e3o do CA FSL assume em junho',text:'A nova diretoria assume em 1 de junho com novos projetos.'},
-    {id:'n3',day:'04',mon:'Mai',tag:'Evento',tc:'t-ev',title:'Semana Acad\u00eamica 2025 bate recorde',text:'Mais de 400 inscritos, com pain\u00e9is de especialistas.'},
-    {id:'n4',day:'25',mon:'Abr',tag:'Ci\u00eancia',tc:'t-sci',title:'Ligantes publicam no JAMA Oncology',text:'Dois estudantes publicaram pesquisa em peri\u00f3dico internacional.'}
+    {id:1,day:'15',mon:'Mai',tag:'Liga',tc:'t-liga',title:'Inscrições abertas — Liga de Cardiologia 2025',text:'15 vagas disponíveis. Inscrições até 30 de maio.'},
+    {id:2,day:'10',mon:'Mai',tag:'CA',tc:'t-ca',title:'Nova gestão do CA·HSL assume em junho de 2025',text:'A nova diretoria assume em 1.º de junho com novos projetos.'},
+    {id:3,day:'04',mon:'Mai',tag:'Evento',tc:'t-ev',title:'Semana Acadêmica 2025 bate recorde',text:'Mais de 400 inscritos, com painéis de especialistas.'},
+    {id:4,day:'25',mon:'Abr',tag:'Ciência',tc:'t-sci',title:'Ligantes publicam no JAMA Oncology',text:'Dois estudantes publicaram pesquisa em um dos periódicos mais respeitados.'}
   ],
   agenda:[
-    {id:'a1',day:'23 Mai 2025',title:'Palestra: IA na Medicina',desc:'Pesquisadores do A.Einstein e FSL sobre IA no diagn\u00f3stico.',time:'19h - Audit\u00f3rio A'},
-    {id:'a2',day:'30 Mai 2025',title:'Prazo final - Liga de Cardiologia',desc:'Inscri\u00e7\u00f5es encerram \u00e0s 23h59.',time:'23h59 - Online'},
-    {id:'a3',day:'12 Jun 2025',title:'Simp\u00f3sio de Cardiologia',desc:'Palestrantes do InCor e FSL. Certifica\u00e7\u00e3o dispon\u00edvel.',time:'08h-17h - Audit\u00f3rio Principal'},
-    {id:'a4',day:'20 Jun 2025',title:'Assembleia Geral do CA',desc:'Presta\u00e7\u00e3o de contas e vota\u00e7\u00e3o das pautas 2025.',time:'18h30 - Sala B2'},
-    {id:'a5',day:'28 Jun 2025',title:'Workshop: Comunica\u00e7\u00e3o M\u00e9dica',desc:'Como comunicar diagn\u00f3sticos dif\u00edceis.',time:'14h-18h - Centro de Simula\u00e7\u00e3o'}
+    {id:1,day:'23 Mai 2025',title:'Palestra: IA na Medicina',desc:'Pesquisadores do A.Einstein e HSL sobre IA no diagnóstico.',time:'19h · Auditório A'},
+    {id:2,day:'30 Mai 2025',title:'Prazo — Liga de Cardiologia',desc:'Inscrições encerram às 23h59.',time:'23h59 · Online'},
+    {id:3,day:'12 Jun 2025',title:'Simpósio de Cardiologia',desc:'Palestrantes do InCor e HSL. Certificação disponível.',time:'08h–17h · Auditório Principal'},
+    {id:4,day:'20 Jun 2025',title:'Assembleia Geral do CA',desc:'Prestação de contas e votação das pautas 2025.2.',time:'18h30 · Sala B2'},
+    {id:5,day:'28 Jun 2025',title:'Workshop: Comunicação Médica',desc:'Como comunicar diagnósticos difíceis.',time:'14h–18h · Centro de Simulação'}
   ],
   benefits:[
-    {id:'b1',title:'Biblioteca Virtual',desc:'Acesso gratuito ao UpToDate, Dynamed e acervo digital do FSL.'},
-    {id:'b2',title:'Descontos em Congressos',desc:'At\u00e9 50% de desconto nos principais congressos m\u00e9dicos nacionais.'},
-    {id:'b3',title:'Mentoria com Especialistas',desc:'Programa de mentoria com residentes e especialistas do FSL.'},
-    {id:'b4',title:'Seguro Estudantil',desc:'Cobertura para atividades pr\u00e1ticas supervisionadas no hospital.'},
-    {id:'b5',title:'Sa\u00fade Mental',desc:'6 sess\u00f5es de psicoterapia por semestre com parceiros credenciados.'},
-    {id:'b6',title:'Certifica\u00e7\u00e3o em Pesquisa',desc:'Metodologia cient\u00edfica e bio\u00e9tica - gratuito para membros do CA.'}
+    {id:1,title:'Biblioteca Virtual',desc:'Acesso gratuito ao UpToDate, Dynamed e acervo digital do HSL.'},
+    {id:2,title:'Descontos em Congressos',desc:'Até 50% de desconto nos principais congressos médicos nacionais.'},
+    {id:3,title:'Mentoria com Especialistas',desc:'Programa de mentoria com residentes e especialistas do HSL.'},
+    {id:4,title:'Seguro Estudantil',desc:'Cobertura para atividades práticas supervisionadas no hospital.'},
+    {id:5,title:'Saúde Mental',desc:'6 sessões de psicoterapia por semestre com parceiros credenciados.'},
+    {id:6,title:'Certificação em Pesquisa',desc:'Metodologia científica e bioética — gratuito para membros do CA.'}
   ],
   communications:[
-    {id:'c1',label:'Destaque',title:'Campanha Medicina com Prop\u00f3sito 2025',desc:'Material visual da maior semana acad\u00eamica do CA FSL.',meta:'Maio 2025'},
-    {id:'c2',label:'Newsletter',title:'CA Informa - Edi\u00e7\u00e3o Maio',desc:'Boletim mensal com editais, eventos e conquistas dos ligantes.',meta:'01 Mai 2025'},
-    {id:'c3',label:'Redes Sociais',title:'S\u00e9rie Conhe\u00e7a sua Liga',desc:'Conte\u00fado semanal com depoimentos de membros de cada liga.',meta:'Abr-Jun 2025'}
+    {id:1,label:'Destaque',title:'Campanha Medicina com Propósito 2025',desc:'Material visual da maior semana acadêmica da história do CA·HSL.',meta:'Maio 2025 · Comunicação'},
+    {id:2,label:'Newsletter',title:'CA Informa — Edição Maio',desc:'Boletim mensal com editais, eventos e conquistas dos ligantes.',meta:'01 Mai 2025'},
+    {id:3,label:'Redes Sociais',title:'Série Conheça sua Liga no Instagram',desc:'Conteúdo semanal com depoimentos de membros de cada liga.',meta:'Abr–Jun 2025'}
   ],
   diretoria:[
-    {id:'d1',initials:'MF',role:'Presid\u00eancia',name:'Marina Ferreira',sub:'6. ano - FMUSP'},
-    {id:'d2',initials:'RL',role:'Vice-Presid\u00eancia',name:'Rafael Lima',sub:'5. ano - USP'},
-    {id:'d3',initials:'JP',role:'Financeiro',name:'Julia Prado',sub:'4. ano - UNIFESP'},
-    {id:'d4',initials:'GS',role:'Comunica\u00e7\u00e3o',name:'Gabriel Santos',sub:'5. ano - Santa Casa'},
-    {id:'d5',initials:'LC',role:'Ligas Acad\u00eamicas',name:'Laura Costa',sub:'4. ano - USP'},
-    {id:'d6',initials:'PN',role:'Eventos',name:'Pedro Nunes',sub:'3. ano - PUC-SP'}
+    {id:1,initials:'MF',role:'Presidência',name:'Marina Ferreira',sub:'6.º ano · FMUSP'},
+    {id:2,initials:'RL',role:'Vice-Presidência',name:'Rafael Lima',sub:'5.º ano · USP'},
+    {id:3,initials:'JP',role:'Financeiro',name:'Julia Prado',sub:'4.º ano · UNIFESP'},
+    {id:4,initials:'GS',role:'Comunicação',name:'Gabriel Santos',sub:'5.º ano · Santa Casa'},
+    {id:5,initials:'LC',role:'Ligas Acadêmicas',name:'Laura Costa',sub:'4.º ano · USP'},
+    {id:6,initials:'PN',role:'Eventos',name:'Pedro Nunes',sub:'3.º ano · PUC-SP'}
   ],
   contact:[
-    {id:'co1',label:'E-mail',value:'ca@fsl.org.br'},
-    {id:'co2',label:'Instagram',value:'@ca.fsl'},
-    {id:'co3',label:'Localiza\u00e7\u00e3o',value:'Sala CA - Bloco Acad\u00eamico - FSL Bela Vista'}
-  ]
+    {id:1,label:'E-mail',value:'ca@hsl.org.br'},
+    {id:2,label:'Instagram',value:'@ca.hsl'},
+    {id:3,label:'Localização',value:'Sala CA · Bloco Acadêmico · HSL Bela Vista'}
+  ],
+  users:[{id:1,name:'Admin CA·HSL',email:'admin@cahsl.org.br',pwd:'hsl2025',role:'Administrador'}]
 };
 
-// ============================================================
-//  UTILS
-// ============================================================
-function h(s){if(s==null)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
-function nid(p){return(p||'x')+'_'+Date.now()+'_'+Math.floor(Math.random()*9999);}
-function q(id){return document.getElementById(id);}
-function qv(id){var e=q(id);return e?e.value.trim():'';}
+var ST=loadSt()||JSON.parse(JSON.stringify(DEF));
+['leagues','news','agenda','benefits','communications','diretoria','contact','users'].forEach(function(k){if(!ST[k])ST[k]=DEF[k];});
 
-var _tt;
-function toast(msg,type){
-  var t=q('toast');if(!t)return;
-  t.className='toast show '+(type||'ok');
-  t.textContent=msg;
-  clearTimeout(_tt);_tt=setTimeout(function(){t.classList.remove('show');},3500);
-}
+var CF='all',currentUser=null,selLigaId=null,pendingFiles={},_ri=100;
 
-// ============================================================
-//  FIRESTORE
-// ============================================================
-function dbLoad(){
-  COLS.forEach(function(col){
-    var saved = localStorage.getItem('cafsl_'+col);
-    ST[col] = saved ? JSON.parse(saved) : (DEF[col]||[]).map(function(x){return Object.assign({},x);});
-  });
-  renderAll();
-}
-function dbSave(col,item,cb){
-  var idx = -1;
-  for(var i=0;i<ST[col].length;i++){if(ST[col][i].id===item.id){idx=i;break;}}
-  if(idx>=0) ST[col][idx]=item; else ST[col].push(item);
-  localStorage.setItem('cafsl_'+col, JSON.stringify(ST[col]));
-  if(cb) cb(null);
-}
+function h(s){if(!s)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function nid(a){return a.length?Math.max.apply(null,a.map(function(x){return x.id;}))+1:1;}
+function persist(){saveSt(ST);}
 
-function dbDel(col,id,cb){
-  ST[col] = ST[col].filter(function(x){return x.id!==id;});
-  localStorage.setItem('cafsl_'+col, JSON.stringify(ST[col]));
-  if(cb) cb(null);
-}
+var _t;
+function toast(msg,type){var t=document.getElementById('toast');t.className='toast show '+(type||'ok');t.textContent=msg;clearTimeout(_t);_t=setTimeout(function(){t.classList.remove('show');},3200);}
 
-// ============================================================
-//  AUTH
-// ============================================================
-// auth via localStorage
-
-function doLogin(){
-  var email=qv('lemail'), pwd=q('lpwd').value;
-  var errEl=q('lerr');
-  errEl.style.display='none';
-  // Autenticacao local: verifica usuarios salvos ou senha padrao
-  var users = JSON.parse(localStorage.getItem('cafsl_admins')||'[]');
-  var found = null;
-  for(var i=0;i<users.length;i++){if(users[i].email===email&&users[i].pwd===pwd){found=users[i];break;}}
-  // Senha padrao de primeiro acesso
-  if(!found && email==='admin@fsl.org.br' && pwd==='admin123'){
-    found={uid:'admin001',email:email,name:'Admin',pwd:pwd};
-    users.push(found);
-    localStorage.setItem('cafsl_admins',JSON.stringify(users));
-  }
-  if(found){
-    currentUser={uid:found.uid,email:found.email,name:found.name};
-    closeLogin();openAdmin();
-  } else {
-    errEl.textContent='E-mail ou senha incorretos.';
-    errEl.style.display='block';
-    q('lpwd').value='';q('lpwd').focus();
-  }
-}
-
-function doLogout(){
-  currentUser=null;closeAdmin();toast('Sessao encerrada.','ok');
-}
-
-function doReset(){
-  var email=qv('reset-email');
-  var errEl=q('reset-err'),okEl=q('reset-ok');
-  errEl.style.display='none';okEl.style.display='none';
-  if(!email){errEl.textContent='Digite seu e-mail.';errEl.style.display='block';return;}
-  var users = JSON.parse(localStorage.getItem('cafsl_admins')||'[]');
-  var found = users.some(function(u){return u.email===email;});
-  if(found||email==='admin@fsl.org.br'){
-    okEl.textContent='Se este e-mail existir, entre em contato com o administrador para resetar a senha.';
-    okEl.style.display='block';
-    setTimeout(function(){closeReset();openLogin();},4000);
-  } else {
-    errEl.textContent='E-mail nao encontrado.';errEl.style.display='block';
-  }
-}
-
-function addUser(){
-  var name=qv('u-name'),email=qv('u-email'),pwd=q('u-pwd').value,role=qv('u-role')||'Administrador';
-  if(!name||!email||pwd.length<6){toast('Preencha todos os campos (senha min. 6)','err');return;}
-  var users = JSON.parse(localStorage.getItem('cafsl_admins')||'[]');
-  if(users.some(function(u){return u.email===email;})){toast('E-mail ja cadastrado.','err');return;}
-  users.push({uid:'u_'+Date.now(),email:email,pwd:pwd,name:name,role:role});
-  localStorage.setItem('cafsl_admins',JSON.stringify(users));
-  ['u-name','u-email','u-pwd','u-role'].forEach(function(id){var e=q(id);if(e)e.value='';});
-  loadAdminUsers(function(){renderUsers();});
-  toast('Usuario criado!','ok');
-}
-
-function changePwd(uid){
-  var inp=q('upwd_'+uid);
-  if(!inp||inp.value.length<6){toast('Senha minima: 6 caracteres.','err');return;}
-  var users = JSON.parse(localStorage.getItem('cafsl_admins')||'[]');
-  for(var i=0;i<users.length;i++){if(users[i].uid===uid){users[i].pwd=inp.value;break;}}
-  localStorage.setItem('cafsl_admins',JSON.stringify(users));
-  inp.value='';toast('Senha alterada!','ok');
-}
-
-function loadAdminUsers(cb){
-  var users = JSON.parse(localStorage.getItem('cafsl_admins')||'[]');
-  adminUsers = users.map(function(u){return {uid:u.uid,email:u.email,name:u.name,role:u.role};});
-  if(cb)cb();
-}
-
-// ============================================================
-//  MODAIS
-// ============================================================
-function openLogin(){
-  q('loginOv').classList.add('open');
-  q('lemail').value='';q('lpwd').value='';q('lerr').style.display='none';
-  setTimeout(function(){q('lemail').focus();},120);
-}
-function closeLogin(){q('loginOv').classList.remove('open');}
-
-function openReset(){
-  q('resetOv').classList.add('open');
-  q('reset-email').value='';q('reset-err').style.display='none';q('reset-ok').style.display='none';
-  setTimeout(function(){q('reset-email').focus();},120);
-}
-function closeReset(){q('resetOv').classList.remove('open');}
-
-function openAdmin(){
-  var av=q('an-avatar'),un=q('an-uname');
-  if(av&&currentUser)av.textContent=currentUser.name.charAt(0).toUpperCase();
-  if(un&&currentUser)un.textContent=currentUser.name;
-  q('adm').classList.add('open');
-  openPanel('ligas');
-}
-function closeAdmin(){q('adm').classList.remove('open');}
-
-function openPanel(p){
-  document.querySelectorAll('.apanel').forEach(function(x){x.classList.remove('active');});
-  document.querySelectorAll('.amenu-item').forEach(function(x){x.classList.remove('active');});
-  var pan=q('apanel-'+p);if(pan)pan.classList.add('active');
-  var mi=document.querySelector('.amenu-item[data-apanel="'+p+'"]');if(mi)mi.classList.add('active');
-  if(p==='ligas'){renderAList();showWelcome();}
-  if(p==='noticias')renderNewsEd();
-  if(p==='agenda')renderAgEd();
-  if(p==='beneficios')renderBenEd();
-  if(p==='comunicacao')renderCommEd();
-  if(p==='diretoria'){renderDirEd();renderContactEd();}
-  if(p==='usuarios')loadAdminUsers(function(){renderUsers();});
-}
-
-// ============================================================
-//  NAVEGACAO
-// ============================================================
+// ─── NAVIGATION ─────────────────────────────────────────
 function goTo(p){
   document.querySelectorAll('.page').forEach(function(x){x.classList.remove('active');});
   document.querySelectorAll('.ni').forEach(function(x){x.classList.remove('active');});
-  var pg=q('page-'+p);if(pg)pg.classList.add('active');
-  var ni=q('nav-'+p);if(ni)ni.classList.add('active');
-  var m=q('main');if(m)m.scrollTop=0;
+  var pg=document.getElementById('page-'+p);if(pg)pg.classList.add('active');
+  var ni=document.getElementById('nav-'+p);if(ni)ni.classList.add('active');
+  var m=document.getElementById('main');if(m)m.scrollTop=0;
+  if(p==='ligas')renderLeagues(CF);
+  if(p==='noticias')renderNewsPub();
+  if(p==='agenda')renderAgendaPub();
+  if(p==='beneficios')renderBenPub();
+  if(p==='comunicacao')renderCommPub();
+  if(p==='diretoria')renderDirPub();
 }
 
-// ============================================================
-//  PUBLIC RENDERERS
-// ============================================================
-var SLF={open:'Inscricoes Abertas',soon:'Em Breve',closed:'Encerrado'};
+// ─── PUBLIC RENDERERS ───────────────────────────────────
+var SLF={open:'Inscri\u00e7\u00f5es Abertas',soon:'Em Breve',closed:'Encerrado'};
 var SLS={open:'Abertas',soon:'Em Breve',closed:'Encerrado'};
 var SC={open:'bs-open',soon:'bs-soon',closed:'bs-closed'};
 var AC={open:'aib-open',soon:'aib-soon',closed:'aib-closed'};
-var iLiga='<svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>';
-var iChev='<svg class="li-chev" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>';
-var iFile='<svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
-var iStar='<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
-var iClock='<svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>';
 
-function renderAll(){
-  renderLeagues(CF);renderNewsPub();renderAgPub();
-  renderBenPub();renderCommPub();renderDirPub();
-}
+var LIGA_SVG='<svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>';
+var CHEV_SVG='<svg class="li-chev" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>';
+var CLOCK_SVG='<svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>';
+var FILE_SVG='<svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
+var STAR_SVG='<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
 
 function renderLeagues(f){
   CF=f||'all';
   var open=ST.leagues.filter(function(l){return l.status==='open';});
-  function set(id,v){var e=q(id);if(e)e.textContent=v;}
-  set('lgbadge',ST.leagues.length);set('hs-ligas',ST.leagues.length);
-  set('lb-total',ST.leagues.length);set('lb-open',open.length);
-  set('lb-vagas',open.reduce(function(s,l){return s+(+l.vacancies||0);},0));
-  var list=CF==='all'?ST.leagues:ST.leagues.filter(function(l){return l.status===CF;});
-  var el=q('leaguesList');if(!el)return;
-  if(!list.length){el.innerHTML='<p style="color:var(--muted);padding:1.5rem 0">Nenhuma liga encontrada.</p>';return;}
-  el.innerHTML=list.map(function(l){
-    var rqs=(l.requirements||[]).filter(Boolean);
-    var fls=(l.files||[]);
-    var rH=rqs.length?'<div class="li-reqs"><div class="li-reqs-ttl">Requisitos</div><ul>'+rqs.map(function(r){return'<li>'+h(r)+'</li>';}).join('')+'</ul></div>':'';
-    var fH=fls.length?'<div class="li-reqs"><div class="li-reqs-ttl">Arquivos</div>'+fls.map(function(f){return'<div style="display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--muted);margin-bottom:4px">'+iFile+' '+h(f.name)+'</div>';}).join('')+'</div>':'';
-    var btn=l.status!=='closed'?'<a href="'+h(l.formUrl||'#')+'" class="la2 la2-p">Inscrever-se</a>':'<button class="la2 la2-p" disabled style="opacity:.32;cursor:not-allowed">Encerrado</button>';
-    return '<div class="li-item" id="li-'+l.id+'">'
-      +'<div class="li-row" data-lid="'+l.id+'"><div class="li-ico">'+iLiga+'</div>'
+  var badge=document.getElementById('lgbadge');if(badge)badge.textContent=ST.leagues.length;
+  var hsl=document.getElementById('hs-ligas');if(hsl)hsl.textContent=ST.leagues.length;
+  var tEl=document.getElementById('lb-total');if(tEl)tEl.textContent=ST.leagues.length;
+  var oEl=document.getElementById('lb-open');if(oEl)oEl.textContent=open.length;
+  var vEl=document.getElementById('lb-vagas');if(vEl)vEl.textContent=open.reduce(function(s,l){return s+(+l.vacancies||0);},0);
+  var filtered=CF==='all'?ST.leagues:ST.leagues.filter(function(l){return l.status===CF;});
+  var el=document.getElementById('leaguesList');if(!el)return;
+  if(!filtered.length){el.innerHTML='<p style="color:var(--muted);padding:1.5rem 0;font-size:.84rem">Nenhuma liga encontrada.</p>';return;}
+  var html='';
+  filtered.forEach(function(l){
+    var reqs=(l.requirements||[]).filter(Boolean);
+    var files=(l.files||[]);
+    var reqsH=reqs.length?('<div class="li-reqs"><div class="li-reqs-ttl">Requisitos</div><ul>'+reqs.map(function(r){return '<li>'+h(r)+'</li>';}).join('')+'</ul></div>'):'';
+    var filesH=files.length?('<div class="li-reqs"><div class="li-reqs-ttl">Arquivos</div>'+files.map(function(f){return '<div style="display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--muted);margin-bottom:4px">'+FILE_SVG+' '+h(f.name)+'</div>';}).join('')+'</div>'):'';
+    var inscBtn=l.status!=='closed'?('<a href="'+h(l.formUrl||'#')+'" class="la2 la2-p">Inscrever-se</a>'):'<button class="la2 la2-p" disabled style="opacity:.32;cursor:not-allowed">Encerrado</button>';
+    html+='<div class="li-item" id="li-'+l.id+'">'
+      +'<div class="li-row" data-lid="'+l.id+'">'
+      +'<div class="li-ico">'+LIGA_SVG+'</div>'
       +'<div class="li-inf"><div class="li-area">'+h(l.area)+'</div><div class="li-name">'+h(l.name)+'</div></div>'
       +'<div class="li-right"><div class="li-dl">Prazo: '+h(l.deadline)+'</div>'
-      +'<span class="bs '+(SC[l.status]||'bs-closed')+'">'+h(SLF[l.status]||'')+'</span>'+iChev+'</div></div>'
-      +'<div class="li-panel"><p class="li-desc">'+h(l.description)+'</p>'
-      +'<div class="li-chips"><div class="achip"><strong>Periodo:</strong> '+h(l.period)+'</div>'
+      +'<span class="bs '+(SC[l.status]||'bs-closed')+'">'+h(SLF[l.status]||'')+'</span>'+CHEV_SVG
+      +'</div></div>'
+      +'<div class="li-panel">'
+      +'<p class="li-desc">'+h(l.description)+'</p>'
+      +'<div class="li-chips">'
+      +'<div class="achip"><strong>Per\u00edodo:</strong> '+h(l.period)+'</div>'
       +'<div class="achip"><strong>Vagas:</strong> '+h(l.vacancies)+'</div>'
-      +'<div class="achip"><strong>Prazo:</strong> '+h(l.deadline)+'</div></div>'
-      +rH+fH+'<div class="li-acts2"><a href="'+h(l.editalUrl||'#')+'" class="la2 la2-s">Ver Edital</a>'+btn+'</div>'
+      +'<div class="achip"><strong>Prazo:</strong> '+h(l.deadline)+'</div>'
+      +'</div>'+reqsH+filesH
+      +'<div class="li-acts2"><a href="'+h(l.editalUrl||'#')+'" class="la2 la2-s">Ver Edital</a>'+inscBtn+'</div>'
       +'</div></div>';
-  }).join('');
+  });
+  el.innerHTML=html;
 }
 
 function toggleLiga(id){
-  var el=q('li-'+id);if(!el)return;
+  var el=document.getElementById('li-'+id);if(!el)return;
   var was=el.classList.contains('aopen');
   document.querySelectorAll('.li-item.aopen').forEach(function(x){x.classList.remove('aopen');});
   if(!was)el.classList.add('aopen');
 }
 
 function renderNewsPub(){
-  var el=q('news-list');
-  if(el)el.innerHTML=ST.news.map(function(n){return'<div class="ni2"><div class="ndate"><div class="day">'+h(n.day)+'</div><div class="mon">'+h(n.mon)+'</div></div><div class="nbody"><span class="ntag '+h(n.tc)+'">'+h(n.tag)+'</span><h4>'+h(n.title)+'</h4><p>'+h(n.text)+'</p></div></div>';}).join('');
-  var hg=q('home-news-grid');
-  if(hg)hg.innerHTML=ST.news.slice(0,3).map(function(n){return'<div class="nc"><div class="nc-dt"><div class="day">'+h(n.day)+'</div><div class="mon">'+h(n.mon)+'</div></div><div class="nc-body"><span class="ntag '+h(n.tc)+'">'+h(n.tag)+'</span><h4>'+h(n.title)+'</h4><p>'+h(n.text)+'</p></div></div>';}).join('');
+  var el=document.getElementById('news-list');if(!el)return;
+  el.innerHTML=ST.news.map(function(n){
+    return '<div class="ni2"><div class="ndate"><div class="day">'+h(n.day)+'</div><div class="mon">'+h(n.mon)+'</div></div>'
+      +'<div class="nbody"><span class="ntag '+h(n.tc)+'">'+h(n.tag)+'</span><h4>'+h(n.title)+'</h4><p>'+h(n.text)+'</p></div></div>';
+  }).join('');
+  var hg=document.getElementById('home-news-grid');if(!hg)return;
+  hg.innerHTML=ST.news.slice(0,3).map(function(n){
+    return '<div class="nc"><div class="nc-dt"><div class="day">'+h(n.day)+'</div><div class="mon">'+h(n.mon)+'</div></div>'
+      +'<div class="nc-body"><span class="ntag '+h(n.tc)+'">'+h(n.tag)+'</span><h4>'+h(n.title)+'</h4><p>'+h(n.text)+'</p></div></div>';
+  }).join('');
 }
 
-function renderAgPub(){
-  var el=q('agenda-grid');
-  if(el)el.innerHTML=ST.agenda.map(function(a){return'<div class="ag-card"><div class="ag-day">'+h(a.day)+'</div><h4>'+h(a.title)+'</h4><p>'+h(a.desc)+'</p><div class="ag-time">'+iClock+' '+h(a.time)+'</div></div>';}).join('');
-  var er=q('home-ev-row');
-  if(er)er.innerHTML=ST.agenda.slice(0,3).map(function(a){return'<div class="evc"><div class="evc-day">'+h(a.day)+'</div><h4>'+h(a.title)+'</h4><p>'+h(a.desc)+'</p><div class="evc-time">'+iClock+' '+h(a.time)+'</div></div>';}).join('');
+function renderAgendaPub(){
+  var el=document.getElementById('agenda-grid');if(!el)return;
+  el.innerHTML=ST.agenda.map(function(a){
+    return '<div class="ag-card"><div class="ag-day">'+h(a.day)+'</div><h4>'+h(a.title)+'</h4><p>'+h(a.desc)+'</p>'
+      +'<div class="ag-time">'+CLOCK_SVG+' '+h(a.time)+'</div></div>';
+  }).join('');
+  var er=document.getElementById('home-ev-row');if(!er)return;
+  er.innerHTML=ST.agenda.slice(0,3).map(function(a){
+    return '<div class="evc"><div class="evc-day">'+h(a.day)+'</div><h4>'+h(a.title)+'</h4><p>'+h(a.desc)+'</p>'
+      +'<div class="evc-time">'+CLOCK_SVG+' '+h(a.time)+'</div></div>';
+  }).join('');
 }
 
 function renderBenPub(){
-  var el=q('ben-grid');
-  if(el)el.innerHTML=ST.benefits.map(function(b){return'<div class="bc"><div class="bico">'+iStar+'</div><div><h4>'+h(b.title)+'</h4><p>'+h(b.desc)+'</p></div></div>';}).join('');
+  var el=document.getElementById('ben-grid');if(!el)return;
+  el.innerHTML=ST.benefits.map(function(b){
+    return '<div class="bc"><div class="bico">'+STAR_SVG+'</div><div><h4>'+h(b.title)+'</h4><p>'+h(b.desc)+'</p></div></div>';
+  }).join('');
 }
 
 function renderCommPub(){
-  var el=q('comm-grid');
-  if(el)el.innerHTML=ST.communications.map(function(c){return'<div style="background:var(--white);border:1px solid rgba(0,0,0,.06);border-radius:var(--rad);overflow:hidden"><div style="height:120px;background:linear-gradient(135deg,var(--navy),var(--navy3));display:flex;align-items:flex-end;padding:.6rem .8rem"><span style="font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:var(--navy);padding:2px 7px;border-radius:999px;font-weight:700">'+h(c.label)+'</span></div><div style="padding:1rem"><h4 style="font-size:1rem;color:var(--navy);margin-bottom:.28rem">'+h(c.title)+'</h4><p style="font-size:.74rem;color:var(--muted);line-height:1.5">'+h(c.desc)+'</p><div style="font-size:.63rem;color:var(--light);margin-top:.55rem">'+h(c.meta)+'</div></div></div>';}).join('');
+  var el=document.getElementById('comm-grid');if(!el)return;
+  el.innerHTML=ST.communications.map(function(c){
+    return '<div style="background:var(--white);border:1px solid rgba(0,0,0,.06);border-radius:var(--rad);overflow:hidden;box-shadow:0 2px 10px rgba(8,25,46,.04)">'
+      +'<div style="height:120px;background:linear-gradient(135deg,var(--navy),var(--navy3));display:flex;align-items:flex-end;padding:.6rem .8rem">'
+      +'<span style="font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:var(--navy);padding:2px 7px;border-radius:999px;font-weight:700">'+h(c.label)+'</span></div>'
+      +'<div style="padding:1rem"><h4 style="font-size:1rem;color:var(--navy);margin-bottom:.28rem">'+h(c.title)+'</h4>'
+      +'<p style="font-size:.74rem;color:var(--muted);line-height:1.5">'+h(c.desc)+'</p>'
+      +'<div style="font-size:.63rem;color:var(--light);margin-top:.55rem">'+h(c.meta)+'</div></div></div>';
+  }).join('');
 }
 
 function renderDirPub(){
-  var dg=q('dir-grid');
-  if(dg)dg.innerHTML=ST.diretoria.map(function(d){return'<div class="dc"><div class="dav">'+h(d.initials)+'</div><div class="drole">'+h(d.role)+'</div><h4>'+h(d.name)+'</h4><p>'+h(d.sub)+'</p></div>';}).join('');
-  var cf=q('contact-fields');
-  if(cf)cf.innerHTML=ST.contact.map(function(c){return'<div class="ctf"><div class="cl2">'+h(c.label)+'</div><div class="cv">'+h(c.value)+'</div></div>';}).join('');
+  var dg=document.getElementById('dir-grid');
+  if(dg)dg.innerHTML=ST.diretoria.map(function(d){
+    return '<div class="dc"><div class="dav">'+h(d.initials)+'</div><div class="drole">'+h(d.role)+'</div><h4>'+h(d.name)+'</h4><p>'+h(d.sub)+'</p></div>';
+  }).join('');
+  var cf=document.getElementById('contact-fields');
+  if(cf)cf.innerHTML=ST.contact.map(function(c){
+    return '<div class="ctf"><div class="cl2">'+h(c.label)+'</div><div class="cv">'+h(c.value)+'</div></div>';
+  }).join('');
 }
 
-// ============================================================
-//  ADMIN LIGAS
-// ============================================================
-function renderAList(){
-  var al=q('alist');if(!al)return;
+// ─── LOGIN ──────────────────────────────────────────────
+function openLogin(){
+  document.getElementById('loginOv').classList.add('open');
+  document.getElementById('lemail').value='';
+  document.getElementById('lpwd').value='';
+  document.getElementById('lerr').style.display='none';
+  setTimeout(function(){document.getElementById('lemail').focus();},120);
+}
+function closeLogin(){document.getElementById('loginOv').classList.remove('open');}
+function doLogin(){
+  var email=document.getElementById('lemail').value.trim().toLowerCase();
+  var pwd=document.getElementById('lpwd').value;
+  var user=null;
+  for(var i=0;i<ST.users.length;i++){if(ST.users[i].email.toLowerCase()===email&&ST.users[i].pwd===pwd){user=ST.users[i];break;}}
+  if(user){currentUser=user;closeLogin();openAdmin();}
+  else{document.getElementById('lerr').style.display='block';document.getElementById('lpwd').value='';document.getElementById('lpwd').focus();}
+}
+
+// ─── ADMIN ──────────────────────────────────────────────
+function openAdmin(){
+  var av=document.getElementById('an-avatar');if(av&&currentUser)av.textContent=currentUser.name.charAt(0).toUpperCase();
+  var un=document.getElementById('an-uname');if(un&&currentUser)un.textContent=currentUser.name;
+  document.getElementById('adm').classList.add('open');
+  openPanel('ligas');
+}
+function closeAdmin(){document.getElementById('adm').classList.remove('open');}
+
+function openPanel(p){
+  document.querySelectorAll('.apanel').forEach(function(x){x.classList.remove('active');});
+  document.querySelectorAll('.amenu-item').forEach(function(x){x.classList.remove('active');});
+  var pan=document.getElementById('apanel-'+p);if(pan)pan.classList.add('active');
+  var mi=document.querySelector('.amenu-item[data-apanel="'+p+'"]');if(mi)mi.classList.add('active');
+  if(p==='ligas'){renderAdminLigaList();showLigaWelcome();}
+  if(p==='noticias')renderNewsEd();
+  if(p==='agenda')renderAgendaEd();
+  if(p==='beneficios')renderBenEd();
+  if(p==='comunicacao')renderCommEd();
+  if(p==='diretoria'){renderDirEd();renderContactEd();}
+  if(p==='usuarios')renderUsers();
+}
+
+// ─── LIGAS ADMIN ────────────────────────────────────────
+function renderAdminLigaList(){
+  var al=document.getElementById('alist');if(!al)return;
   if(!ST.leagues.length){al.innerHTML='<p style="font-size:.68rem;color:rgba(255,255,255,.2);text-align:center;padding:.5rem">Nenhuma liga.</p>';return;}
-  al.innerHTML=ST.leagues.map(function(l){return'<div class="ait'+(selLigaId===l.id?' sel':'')+'" data-aid="'+l.id+'"><span class="ain">'+h(l.name)+'</span><span class="aib '+(AC[l.status]||'aib-closed')+'">'+h(SLS[l.status]||'')+'</span></div>';}).join('');
+  al.innerHTML=ST.leagues.map(function(l){
+    return '<div class="ait'+(selLigaId===l.id?' sel':'')+'" data-aid="'+l.id+'">'
+      +'<span class="ain">'+h(l.name)+'</span>'
+      +'<span class="aib '+(AC[l.status]||'aib-closed')+'">'+h(SLS[l.status]||'')+'</span></div>';
+  }).join('');
 }
 
-function showWelcome(){
+function showLigaWelcome(){
   selLigaId=null;
-  var w=q('liga-welc');if(w)w.style.display='flex';
-  var f=q('aform');if(f)f.style.display='none';
-  renderAList();
+  var w=document.getElementById('liga-welc');if(w)w.style.display='flex';
+  var f=document.getElementById('aform');if(f)f.style.display='none';
+  renderAdminLigaList();
 }
 
 function editLiga(id){
   selLigaId=id;
   var l=null;
   for(var i=0;i<ST.leagues.length;i++){if(ST.leagues[i].id===id){l=ST.leagues[i];break;}}
-  renderLigaForm(l);renderAList();
+  renderLigaForm(l);
+  renderAdminLigaList();
 }
-function newLiga(){selLigaId=null;renderLigaForm(null);renderAList();}
+
+function newLiga(){selLigaId=null;renderLigaForm(null);renderAdminLigaList();}
 
 function renderLigaForm(l){
-  var w=q('liga-welc');if(w)w.style.display='none';
-  var f=q('aform');if(!f)return;
+  var w=document.getElementById('liga-welc');if(w)w.style.display='none';
+  var f=document.getElementById('aform');if(!f)return;
   f.style.display='block';
-  var fk=l?'fl_'+l.id:'fl_new';
-  pendingFiles[fk]=l?JSON.parse(JSON.stringify(l.files||[])):[];
+  var fkey=l?'fl_'+l.id:'fl_new';
+  pendingFiles[fkey]=l?(l.files?JSON.parse(JSON.stringify(l.files)):[]):[];
   var rqs=l?(l.requirements||[]):[''];
-  var rH='';
-  rqs.forEach(function(r,i){rH+='<div class="rrow" id="rr_'+i+'"><input class="ri" value="'+h(r)+'" placeholder="Requisito"/><button type="button" class="rdel" data-rrid="rr_'+i+'">\u2715</button></div>';});
-  var sO='';
-  [{v:'open',l:'Inscricoes Abertas'},{v:'soon',l:'Em Breve'},{v:'closed',l:'Encerrado'}].forEach(function(o){
-    sO+='<option value="'+o.v+'"'+((l&&l.status===o.v)||(!l&&o.v==='open')?' selected':'')+'>'+o.l+'</option>';
+  var rqsH='';
+  for(var ri=0;ri<rqs.length;ri++){
+    rqsH+='<div class="rrow" id="rr_'+ri+'"><input class="ri" value="'+h(rqs[ri])+'" placeholder="Requisito"/>'
+      +'<button type="button" class="rdel" data-rrid="rr_'+ri+'">\u2715</button></div>';
+  }
+  var selOpts='';
+  [{v:'open',l:'Inscri\u00e7\u00f5es Abertas'},{v:'soon',l:'Em Breve'},{v:'closed',l:'Encerrado'}].forEach(function(o){
+    var sel=(l&&l.status===o.v)||(!l&&o.v==='open');
+    selOpts+='<option value="'+o.v+'"'+(sel?' selected':'')+'>'+o.l+'</option>';
   });
-  f.innerHTML='<div style="margin-bottom:1.1rem"><strong style="font-size:1.1rem;color:var(--white)">'+(l?'Editar Liga':'Nova Liga')+'</strong><p style="font-size:.72rem;color:rgba(255,255,255,.26);margin-top:.15rem">'+(l?'Atualize e salve.':'Preencha os dados.')+'</p></div>'
+  var delBtn=l?('<button class="adel" data-ldel="'+l.id+'">Excluir Liga</button>'):'';
+  var saveVal=l?l.id:'new';
+  f.innerHTML=''
+    +'<div style="margin-bottom:1.1rem"><strong style="font-size:1.1rem;color:var(--white)">'+(l?'Editar Liga':'Nova Liga')+'</strong>'
+    +'<p style="font-size:.72rem;color:rgba(255,255,255,.26);margin-top:.15rem">'+(l?'Atualize e salve.':'Preencha os dados.')+'</p></div>'
     +'<div class="fg">'
     +'<div class="fi s2"><label>Nome *</label><input id="lf_name" value="'+h(l?l.name:'')+'" placeholder="Nome da liga"/></div>'
-    +'<div class="fi"><label>Area *</label><input id="lf_area" value="'+h(l?l.area:'')+'" placeholder="Ex: Cardiologia"/></div>'
-    +'<div class="fi"><label>Status</label><select id="lf_status">'+sO+'</select></div>'
+    +'<div class="fi"><label>\u00c1rea *</label><input id="lf_area" value="'+h(l?l.area:'')+'" placeholder="Ex: Cardiologia"/></div>'
+    +'<div class="fi"><label>Status</label><select id="lf_status">'+selOpts+'</select></div>'
     +'<div class="fi"><label>Vagas</label><input type="number" id="lf_vagas" value="'+(l?l.vacancies:'')+'" placeholder="0"/></div>'
     +'<div class="fi"><label>Prazo</label><input id="lf_prazo" value="'+h(l?l.deadline:'')+'" placeholder="30 mai 2025"/></div>'
-    +'<div class="fi s2"><label>Periodo</label><input id="lf_periodo" value="'+h(l?l.period:'')+'" placeholder="Ago 2025-Jul 2026"/></div>'
-    +'<div class="fi s2"><label>Descricao *</label><textarea id="lf_desc" rows="3" placeholder="Descreva a liga...">'+h(l?l.description:'')+'</textarea></div>'
+    +'<div class="fi s2"><label>Per\u00edodo</label><input id="lf_periodo" value="'+h(l?l.period:'')+'" placeholder="Ago 2025 \u2013 Jul 2026"/></div>'
+    +'<div class="fi s2"><label>Descri\u00e7\u00e3o *</label><textarea id="lf_desc" rows="3" placeholder="Descreva a liga...">'+h(l?l.description:'')+'</textarea></div>'
     +'<div class="fi s2"><label>Atividades</label><textarea id="lf_ativ" rows="2" placeholder="Principais atividades...">'+h(l?l.activities:'')+'</textarea></div>'
     +'<hr class="fdiv"/>'
-    +'<div class="fi s2"><label>Requisitos</label><div class="rlist" id="rlist">'+rH+'</div><button type="button" class="radd" id="btn-addReq">+ Adicionar requisito</button></div>'
+    +'<div class="fi s2"><label>Requisitos</label><div class="rlist" id="rlist">'+rqsH+'</div>'
+    +'<button type="button" class="radd" id="btn-addReq">+ Adicionar requisito</button></div>'
     +'<hr class="fdiv"/>'
     +'<div class="fi"><label>Link Edital</label><input type="url" id="lf_edital" value="'+h(l?l.editalUrl:'')+'" placeholder="https://..."/></div>'
-    +'<div class="fi"><label>Link Formulario</label><input type="url" id="lf_form" value="'+h(l?l.formUrl:'')+'" placeholder="https://..."/></div>'
+    +'<div class="fi"><label>Link Formul\u00e1rio</label><input type="url" id="lf_form" value="'+h(l?l.formUrl:'')+'" placeholder="https://..."/></div>'
     +'<hr class="fdiv"/>'
-    +'<div class="fi s2"><label>Arquivos</label>'
-    +'<div style="position:relative;border:2px dashed rgba(201,169,110,.22);border-radius:8px;padding:1.1rem;text-align:center">'
-    +'<input type="file" id="lf_files" multiple accept=".pdf,.doc,.docx,.png,.jpg,.jpeg" style="position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%"/>'
-    +'<p style="font-size:.74rem;color:rgba(255,255,255,.3)">Clique para selecionar arquivos</p>'
+    +'<div class="fi s2"><label>Arquivos Anexados</label>'
+    +'<div class="fupload-box" style="position:relative;border:2px dashed rgba(201,169,110,.22);border-radius:8px;padding:1.1rem;text-align:center;cursor:pointer;transition:border-color .2s">'
+    +'<input type="file" id="lf_files" multiple accept=".pdf,.doc,.docx,.png,.jpg,.jpeg" data-fkey="'+fkey+'" style="position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%"/>'
+    +'<p style="font-size:.74rem;color:rgba(255,255,255,.3)">Clique para selecionar ou arraste arquivos</p>'
     +'<span style="font-size:.62rem;color:rgba(255,255,255,.18)">PDF, DOC, DOCX, PNG, JPG</span></div>'
-    +'<div id="ffl_'+fk+'"></div></div>'
+    +'<div id="ffl_'+fkey+'"></div></div>'
     +'</div>'
-    +'<div class="factions"><div>'+(l?'<button class="adel" data-ldel="'+l.id+'">Excluir Liga</button>':'')+'</div>'
+    +'<div class="factions"><div>'+delBtn+'</div>'
     +'<div class="factions-r"><button class="acancel" id="btn-ligaCancel">Cancelar</button>'
-    +'<button class="asave" data-lsave="'+(l?l.id:'new')+'">Salvar</button></div></div>';
-  renderFList(fk);
-  q('lf_files').addEventListener('change',function(ev){handleFiles(ev.target.files,fk);});
+    +'<button class="asave" data-lsave="'+saveVal+'">Salvar</button></div></div>';
+  renderFileList(fkey);
+  document.getElementById('lf_files').addEventListener('change',function(ev){handleFiles(ev.target.files,fkey);});
 }
 
 function addReq(){
-  var list=q('rlist');if(!list)return;_ri++;
-  var d=document.createElement('div');d.className='rrow';d.id='rr_'+_ri;
-  d.innerHTML='<input class="ri" value="" placeholder="Requisito"/><button type="button" class="rdel" data-rrid="rr_'+_ri+'">\u2715</button>';
+  var list=document.getElementById('rlist');if(!list)return;
+  _ri++;
+  var d=document.createElement('div');
+  d.className='rrow';d.id='rr_'+_ri;
+  d.innerHTML='<input class="ri" value="" placeholder="Requisito"/>'
+    +'<button type="button" class="rdel" data-rrid="rr_'+_ri+'">\u2715</button>';
   list.appendChild(d);
 }
-function rmReq(id){var r=q(id);if(r)r.remove();}
-function getReqs(){return Array.from(document.querySelectorAll('.ri')).map(function(i){return i.value.trim();}).filter(Boolean);}
+function rmReq(id){var r=document.getElementById(id);if(r)r.remove();}
+function getReqs(){return Array.prototype.slice.call(document.querySelectorAll('.ri')).map(function(i){return i.value.trim();}).filter(Boolean);}
 
-function handleFiles(fl,fk){
-  if(!pendingFiles[fk])pendingFiles[fk]=[];
-  Array.from(fl).forEach(function(file){
+function handleFiles(fl,fkey){
+  if(!pendingFiles[fkey])pendingFiles[fkey]=[];
+  Array.prototype.forEach.call(fl,function(file){
     var reader=new FileReader();
-    reader.onload=function(ev){pendingFiles[fk].push({name:file.name,size:file.size,type:file.type,data:ev.target.result});renderFList(fk);};
+    reader.onload=function(ev){pendingFiles[fkey].push({name:file.name,size:file.size,type:file.type,data:ev.target.result});renderFileList(fkey);};
     reader.readAsDataURL(file);
   });
 }
-function renderFList(fk){
-  var el=q('ffl_'+fk);if(!el)return;
-  var files=pendingFiles[fk]||[];
+function renderFileList(fkey){
+  var el=document.getElementById('ffl_'+fkey);if(!el)return;
+  var files=pendingFiles[fkey]||[];
+  if(!files.length){el.innerHTML='';return;}
   el.innerHTML=files.map(function(f,i){
     var sz=f.size<1048576?Math.round(f.size/1024)+'KB':(Math.round(f.size/1048576*10)/10)+'MB';
-    return'<div class="ffile">'+iFile+'<span class="ffile-name">'+h(f.name)+'</span><span class="ffile-size">'+sz+'</span><button class="ffile-del" data-fkey="'+fk+'" data-fidx="'+i+'">\u2715</button></div>';
+    return '<div class="ffile">'+FILE_SVG+'<span class="ffile-name">'+h(f.name)+'</span>'
+      +'<span class="ffile-size">'+sz+'</span>'
+      +'<button class="ffile-del" data-fkey="'+fkey+'" data-fidx="'+i+'">\u2715</button></div>';
   }).join('');
 }
-function removeFile(fk,idx){if(pendingFiles[fk])pendingFiles[fk].splice(idx,1);renderFList(fk);}
+function removeFile(fkey,idx){if(!pendingFiles[fkey])return;pendingFiles[fkey].splice(idx,1);renderFileList(fkey);}
 
 function saveLiga(sid){
-  var name=qv('lf_name'),area=qv('lf_area'),desc=qv('lf_desc');
-  if(!name||!area||!desc){toast('Preencha os campos obrigatorios (*)','err');return;}
-  var isNew=sid==='new',realId=isNew?nid('l'):sid,fk=isNew?'fl_new':'fl_'+realId;
+  var name=document.getElementById('lf_name').value.trim();
+  var area=document.getElementById('lf_area').value.trim();
+  var desc=document.getElementById('lf_desc').value.trim();
+  if(!name||!area||!desc){toast('Preencha os campos obrigat\u00f3rios (*)','err');return;}
+  var isNew=sid==='new';
+  var realId=isNew?nid(ST.leagues):Number(sid);
+  var fkey=isNew?'fl_new':'fl_'+realId;
   var obj={id:realId,name:name,area:area,
-    status:q('lf_status').value,
-    vacancies:parseInt(qv('lf_vagas'))||0,
-    deadline:qv('lf_prazo'),period:qv('lf_periodo'),
-    description:desc,activities:qv('lf_ativ'),
+    status:document.getElementById('lf_status').value,
+    vacancies:parseInt(document.getElementById('lf_vagas').value)||0,
+    deadline:document.getElementById('lf_prazo').value.trim(),
+    period:document.getElementById('lf_periodo').value.trim(),
+    description:desc,
+    activities:document.getElementById('lf_ativ').value.trim(),
     requirements:getReqs(),
-    editalUrl:qv('lf_edital'),formUrl:qv('lf_form'),
-    files:pendingFiles[fk]||[]};
-  dbSave('leagues',obj,function(err){
-    if(err)return;
-    if(isNew){ST.leagues.push(obj);selLigaId=realId;}
-    else{for(var i=0;i<ST.leagues.length;i++){if(ST.leagues[i].id===realId){ST.leagues[i]=obj;break;}}selLigaId=realId;}
-    renderLeagues(CF);renderAList();
-    toast(isNew?'Liga criada!':'Liga atualizada!','ok');
-  });
+    editalUrl:document.getElementById('lf_edital').value.trim(),
+    formUrl:document.getElementById('lf_form').value.trim(),
+    files:pendingFiles[fkey]||[]};
+  if(isNew){ST.leagues.push(obj);pendingFiles['fl_'+obj.id]=pendingFiles['fl_new']||[];delete pendingFiles['fl_new'];selLigaId=obj.id;}
+  else{for(var i=0;i<ST.leagues.length;i++){if(ST.leagues[i].id===obj.id){ST.leagues[i]=obj;break;}}selLigaId=obj.id;}
+  persist();renderLeagues(CF);renderAdminLigaList();
+  toast(isNew?'Liga criada!':'Liga atualizada!','ok');
 }
-
 function delLiga(id){
   if(!confirm('Excluir esta liga?'))return;
-  dbDel('leagues',id,function(err){
-    if(err)return;
-    ST.leagues=ST.leagues.filter(function(l){return l.id!==id;});
-    renderLeagues(CF);showWelcome();toast('Liga excluida.','ok');
-  });
+  ST.leagues=ST.leagues.filter(function(l){return l.id!==Number(id);});
+  persist();renderLeagues(CF);showLigaWelcome();toast('Liga exclu\u00edda.','ok');
 }
 
-// ============================================================
-//  GENERIC EDITORS
-// ============================================================
-function mi(id,val,ph,st){return'<input id="'+id+'" value="'+h(val)+'" placeholder="'+h(ph||'')+'"'+(st?' style="'+st+'"':'')+'/>';}
-function mta(id,val,ph,rows){return'<textarea id="'+id+'" rows="'+(rows||2)+'" placeholder="'+h(ph||'')+'">'+h(val)+'</textarea>';}
-function mc(body,si,di){return'<div class="ce-card"><div class="ce-body">'+body+'</div><div style="display:flex;flex-direction:column;gap:.35rem;padding-top:.1rem"><button class="ce-save" data-si="'+si+'">Salvar</button><button class="ce-del" data-di="'+di+'">\u2715</button></div></div>';}
+// ─── GENERIC CONTENT EDITORS ────────────────────────────
+function mkInp(id,val,ph,style){return '<input id="'+id+'" value="'+h(val)+'" placeholder="'+h(ph||'')+'"'+(style?' style="'+style+'"':'')+'/>';}
+function mkTa(id,val,ph,rows){return '<textarea id="'+id+'" rows="'+(rows||2)+'" placeholder="'+h(ph||'')+'">'+h(val)+'</textarea>';}
+function mkCard(body,si,di){
+  return '<div class="ce-card"><div class="ce-body">'+body+'</div>'
+    +'<div style="display:flex;flex-direction:column;gap:.35rem;padding-top:.1rem">'
+    +'<button class="ce-save" data-si="'+si+'">Salvar</button>'
+    +'<button class="ce-del" data-di="'+di+'">\u2715</button></div></div>';
+}
 
-function renderNewsEd(){var el=q('news-editor');if(!el)return;el.innerHTML=ST.news.map(function(n,i){return mc('<div style="display:flex;gap:.5rem;flex-wrap:wrap">'+mi('ne_d_'+i,n.day,'Dia','width:50px')+mi('ne_m_'+i,n.mon,'Mes','width:58px')+mi('ne_t_'+i,n.tag,'Tag','width:75px')+mi('ne_c_'+i,n.tc,'CSS','flex:1;min-width:80px')+'</div>'+mi('ne_ti_'+i,n.title,'Titulo')+mta('ne_tx_'+i,n.text,'Texto',2),'n'+i,'nd'+i);}).join('');}
-function saveNews(i){var u=Object.assign({},ST.news[i],{day:qv('ne_d_'+i),mon:qv('ne_m_'+i),tag:qv('ne_t_'+i),tc:qv('ne_c_'+i),title:qv('ne_ti_'+i),text:qv('ne_tx_'+i)});dbSave('news',u,function(e){if(!e){ST.news[i]=u;renderNewsPub();toast('Noticia salva!','ok');}});}
-function addNews(){var u={id:nid('n'),day:'01',mon:'Jan',tag:'CA',tc:'t-ca',title:'Nova noticia',text:'Descricao.'};dbSave('news',u,function(e){if(!e){ST.news.unshift(u);renderNewsEd();renderNewsPub();toast('Adicionada!','ok');}});}
-function delNews(i){if(!confirm('Remover?'))return;dbDel('news',ST.news[i].id,function(e){if(!e){ST.news.splice(i,1);renderNewsEd();renderNewsPub();toast('Removida.','ok');}});}
-
-function renderAgEd(){var el=q('agenda-editor');if(!el)return;el.innerHTML=ST.agenda.map(function(a,i){return mc(mi('ae_d_'+i,a.day,'Data')+mi('ae_t_'+i,a.title,'Titulo')+mta('ae_dc_'+i,a.desc,'Descricao',2)+mi('ae_tm_'+i,a.time,'Horario'),'a'+i,'ad'+i);}).join('');}
-function saveAg(i){var u=Object.assign({},ST.agenda[i],{day:qv('ae_d_'+i),title:qv('ae_t_'+i),desc:qv('ae_dc_'+i),time:qv('ae_tm_'+i)});dbSave('agenda',u,function(e){if(!e){ST.agenda[i]=u;renderAgPub();toast('Evento salvo!','ok');}});}
-function addAg(){var u={id:nid('a'),day:'01 Jan 2026',title:'Novo evento',desc:'Descricao.',time:'00h - Local'};dbSave('agenda',u,function(e){if(!e){ST.agenda.push(u);renderAgEd();renderAgPub();toast('Adicionado!','ok');}});}
-function delAg(i){if(!confirm('Remover?'))return;dbDel('agenda',ST.agenda[i].id,function(e){if(!e){ST.agenda.splice(i,1);renderAgEd();renderAgPub();toast('Removido.','ok');}});}
-
-function renderBenEd(){var el=q('ben-editor');if(!el)return;el.innerHTML=ST.benefits.map(function(b,i){return mc(mi('be_t_'+i,b.title,'Titulo')+mta('be_d_'+i,b.desc,'Descricao',2),'b'+i,'bd'+i);}).join('');}
-function saveBen(i){var u=Object.assign({},ST.benefits[i],{title:qv('be_t_'+i),desc:qv('be_d_'+i)});dbSave('benefits',u,function(e){if(!e){ST.benefits[i]=u;renderBenPub();toast('Salvo!','ok');}});}
-function addBen(){var u={id:nid('b'),title:'Novo beneficio',desc:'Descricao.'};dbSave('benefits',u,function(e){if(!e){ST.benefits.push(u);renderBenEd();renderBenPub();toast('Adicionado!','ok');}});}
-function delBen(i){if(!confirm('Remover?'))return;dbDel('benefits',ST.benefits[i].id,function(e){if(!e){ST.benefits.splice(i,1);renderBenEd();renderBenPub();toast('Removido.','ok');}});}
-
-function renderCommEd(){var el=q('comm-editor');if(!el)return;el.innerHTML=ST.communications.map(function(c,i){return mc('<div style="display:flex;gap:.5rem">'+mi('cm_l_'+i,c.label,'Categoria','width:130px')+mi('cm_m_'+i,c.meta,'Meta','flex:1')+'</div>'+mi('cm_t_'+i,c.title,'Titulo')+mta('cm_d_'+i,c.desc,'Descricao',2),'c'+i,'cd'+i);}).join('');}
-function saveComm(i){var u=Object.assign({},ST.communications[i],{label:qv('cm_l_'+i),meta:qv('cm_m_'+i),title:qv('cm_t_'+i),desc:qv('cm_d_'+i)});dbSave('communications',u,function(e){if(!e){ST.communications[i]=u;renderCommPub();toast('Salvo!','ok');}});}
-function addComm(){var u={id:nid('c'),label:'Novo',title:'Titulo',desc:'Descricao.',meta:'2025'};dbSave('communications',u,function(e){if(!e){ST.communications.push(u);renderCommEd();renderCommPub();toast('Adicionado!','ok');}});}
-function delComm(i){if(!confirm('Remover?'))return;dbDel('communications',ST.communications[i].id,function(e){if(!e){ST.communications.splice(i,1);renderCommEd();renderCommPub();toast('Removida.','ok');}});}
-
-function renderDirEd(){var el=q('dir-editor');if(!el)return;el.innerHTML=ST.diretoria.map(function(d,i){return mc('<div style="display:flex;gap:.5rem">'+mi('de_i_'+i,d.initials,'Ini','width:56px')+mi('de_r_'+i,d.role,'Cargo','flex:1')+'</div>'+mi('de_n_'+i,d.name,'Nome completo')+mi('de_s_'+i,d.sub,'Ano - Faculdade'),'d'+i,'dd'+i);}).join('');}
-function saveDir(i){var u=Object.assign({},ST.diretoria[i],{initials:qv('de_i_'+i),role:qv('de_r_'+i),name:qv('de_n_'+i),sub:qv('de_s_'+i)});dbSave('diretoria',u,function(e){if(!e){ST.diretoria[i]=u;renderDirPub();toast('Atualizado!','ok');}});}
-function addDir(){var u={id:nid('d'),initials:'??',role:'Cargo',name:'Nome',sub:'Ano - Faculdade'};dbSave('diretoria',u,function(e){if(!e){ST.diretoria.push(u);renderDirEd();renderDirPub();toast('Adicionado!','ok');}});}
-function delDir(i){if(!confirm('Remover membro?'))return;dbDel('diretoria',ST.diretoria[i].id,function(e){if(!e){ST.diretoria.splice(i,1);renderDirEd();renderDirPub();toast('Removido.','ok');}});}
-
-function renderContactEd(){var el=q('contact-editor');if(!el)return;el.innerHTML=ST.contact.map(function(c,i){return mc(mi('co_l_'+i,c.label,'Label')+mi('co_v_'+i,c.value,'Valor'),'co'+i,'cod'+i);}).join('');}
-function saveContact(i){var u=Object.assign({},ST.contact[i],{label:qv('co_l_'+i),value:qv('co_v_'+i)});dbSave('contact',u,function(e){if(!e){ST.contact[i]=u;renderDirPub();toast('Salvo!','ok');}});}
-function addContact(){var u={id:nid('co'),label:'Canal',value:'-'};dbSave('contact',u,function(e){if(!e){ST.contact.push(u);renderContactEd();renderDirPub();toast('Adicionado!','ok');}});}
-function delContact(i){if(!confirm('Remover?'))return;dbDel('contact',ST.contact[i].id,function(e){if(!e){ST.contact.splice(i,1);renderContactEd();renderDirPub();toast('Removido.','ok');}});}
-
-// ============================================================
-//  USERS
-// ============================================================
-function renderUsers(){
-  var el=q('users-list');if(!el)return;
-  if(!adminUsers.length){el.innerHTML='<p style="font-size:.75rem;color:rgba(255,255,255,.25);padding:1rem 0">Nenhum usuario encontrado no Firestore.</p>';return;}
-  el.innerHTML=adminUsers.map(function(u){
-    return'<div class="user-card"><div class="uc-av">'+h((u.name||u.email||'?').charAt(0).toUpperCase())+'</div>'
-      +'<div class="uc-info"><div class="uc-name">'+h(u.name||'-')+'</div><div class="uc-email">'+h(u.email)+'</div></div>'
-      +'<span class="uc-role">'+h(u.role||'Admin')+'</span>'
-      +(currentUser&&currentUser.uid===u.uid
-        ?'<input type="password" id="upwd_'+u.uid+'" placeholder="Nova senha" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);color:#fff;border-radius:5px;padding:5px 9px;font-size:.74rem;outline:none;width:120px"/>'
-         +'<button class="ce-save" data-chpwd="'+u.uid+'">Alterar</button>'
-        :'<span style="font-size:.65rem;color:rgba(255,255,255,.2);font-style:italic">altere via console Firebase</span>')
-      +'</div>';
+function renderNewsEd(){
+  var el=document.getElementById('news-editor');if(!el)return;
+  el.innerHTML=ST.news.map(function(n,i){
+    return mkCard(
+      '<div style="display:flex;gap:.5rem;flex-wrap:wrap">'
+        +mkInp('ne_day_'+i,n.day,'Dia','width:50px')
+        +mkInp('ne_mon_'+i,n.mon,'M\u00eas','width:58px')
+        +mkInp('ne_tag_'+i,n.tag,'Tag','width:75px')
+        +mkInp('ne_tc_'+i,n.tc,'Classe CSS','flex:1;min-width:80px')
+      +'</div>'
+      +mkInp('ne_title_'+i,n.title,'T\u00edtulo')
+      +mkTa('ne_text_'+i,n.text,'Texto',2),
+      'n'+i,'nd'+i);
   }).join('');
 }
+function saveNews(i){
+  var g=function(id){var e=document.getElementById(id);return e?e.value.trim():'';};
+  ST.news[i]=Object.assign({},ST.news[i],{day:g('ne_day_'+i),mon:g('ne_mon_'+i),tag:g('ne_tag_'+i),tc:g('ne_tc_'+i),title:g('ne_title_'+i),text:g('ne_text_'+i)});
+  persist();renderNewsPub();toast('Not\u00edcia salva!','ok');
+}
+function addNews(){
+  ST.news.unshift({id:nid(ST.news),day:'01',mon:'Jan',tag:'CA',tc:'t-ca',title:'Nova not\u00edcia',text:'Descri\u00e7\u00e3o.'});
+  persist();renderNewsEd();renderNewsPub();toast('Not\u00edcia adicionada!','ok');
+}
+function delNews(i){if(!confirm('Remover not\u00edcia?'))return;ST.news.splice(i,1);persist();renderNewsEd();renderNewsPub();toast('Removida.','ok');}
 
-// ============================================================
-//  EVENT DELEGATION
-// ============================================================
-document.addEventListener('click', function(ev){
+function renderAgendaEd(){
+  var el=document.getElementById('agenda-editor');if(!el)return;
+  el.innerHTML=ST.agenda.map(function(a,i){
+    return mkCard(
+      mkInp('ae_day_'+i,a.day,'Data (ex: 12 Jun 2025)')
+      +mkInp('ae_title_'+i,a.title,'T\u00edtulo')
+      +mkTa('ae_desc_'+i,a.desc,'Descri\u00e7\u00e3o',2)
+      +mkInp('ae_time_'+i,a.time,'Hor\u00e1rio e local'),
+      'a'+i,'ad'+i);
+  }).join('');
+}
+function saveAgenda(i){
+  var g=function(id){var e=document.getElementById(id);return e?e.value.trim():'';};
+  ST.agenda[i]=Object.assign({},ST.agenda[i],{day:g('ae_day_'+i),title:g('ae_title_'+i),desc:g('ae_desc_'+i),time:g('ae_time_'+i)});
+  persist();renderAgendaPub();toast('Evento salvo!','ok');
+}
+function addAgenda(){
+  ST.agenda.push({id:nid(ST.agenda),day:'01 Jan 2026',title:'Novo evento',desc:'Descri\u00e7\u00e3o.',time:'00h \u00b7 Local'});
+  persist();renderAgendaEd();renderAgendaPub();toast('Evento adicionado!','ok');
+}
+function delAgenda(i){if(!confirm('Remover evento?'))return;ST.agenda.splice(i,1);persist();renderAgendaEd();renderAgendaPub();toast('Removido.','ok');}
+
+function renderBenEd(){
+  var el=document.getElementById('ben-editor');if(!el)return;
+  el.innerHTML=ST.benefits.map(function(b,i){
+    return mkCard(mkInp('be_t_'+i,b.title,'T\u00edtulo')+mkTa('be_d_'+i,b.desc,'Descri\u00e7\u00e3o',2),'b'+i,'bd'+i);
+  }).join('');
+}
+function saveBen(i){
+  var g=function(id){var e=document.getElementById(id);return e?e.value.trim():'';};
+  ST.benefits[i]=Object.assign({},ST.benefits[i],{title:g('be_t_'+i),desc:g('be_d_'+i)});
+  persist();renderBenPub();toast('Benef\u00edcio salvo!','ok');
+}
+function addBen(){
+  ST.benefits.push({id:nid(ST.benefits),title:'Novo benef\u00edcio',desc:'Descri\u00e7\u00e3o.'});
+  persist();renderBenEd();renderBenPub();toast('Adicionado!','ok');
+}
+function delBen(i){if(!confirm('Remover?'))return;ST.benefits.splice(i,1);persist();renderBenEd();renderBenPub();toast('Removido.','ok');}
+
+function renderCommEd(){
+  var el=document.getElementById('comm-editor');if(!el)return;
+  el.innerHTML=ST.communications.map(function(c,i){
+    return mkCard(
+      '<div style="display:flex;gap:.5rem">'
+        +mkInp('cm_l_'+i,c.label,'Categoria','width:130px')
+        +mkInp('cm_m_'+i,c.meta,'Meta','flex:1')
+      +'</div>'
+      +mkInp('cm_t_'+i,c.title,'T\u00edtulo')
+      +mkTa('cm_d_'+i,c.desc,'Descri\u00e7\u00e3o',2),
+      'c'+i,'cd'+i);
+  }).join('');
+}
+function saveComm(i){
+  var g=function(id){var e=document.getElementById(id);return e?e.value.trim():'';};
+  ST.communications[i]=Object.assign({},ST.communications[i],{label:g('cm_l_'+i),meta:g('cm_m_'+i),title:g('cm_t_'+i),desc:g('cm_d_'+i)});
+  persist();renderCommPub();toast('Salvo!','ok');
+}
+function addComm(){
+  ST.communications.push({id:nid(ST.communications),label:'Novo',title:'T\u00edtulo',desc:'Descri\u00e7\u00e3o.',meta:'2025'});
+  persist();renderCommEd();renderCommPub();toast('Adicionado!','ok');
+}
+function delComm(i){if(!confirm('Remover?'))return;ST.communications.splice(i,1);persist();renderCommEd();renderCommPub();toast('Removida.','ok');}
+
+function renderDirEd(){
+  var el=document.getElementById('dir-editor');if(!el)return;
+  el.innerHTML=ST.diretoria.map(function(d,i){
+    return mkCard(
+      '<div style="display:flex;gap:.5rem">'
+        +mkInp('de_i_'+i,d.initials,'Ini','width:56px')
+        +mkInp('de_r_'+i,d.role,'Cargo','flex:1')
+      +'</div>'
+      +mkInp('de_n_'+i,d.name,'Nome completo')
+      +mkInp('de_s_'+i,d.sub,'Ano \u00b7 Faculdade'),
+      'd'+i,'dd'+i);
+  }).join('');
+}
+function saveDir(i){
+  var g=function(id){var e=document.getElementById(id);return e?e.value.trim():'';};
+  ST.diretoria[i]=Object.assign({},ST.diretoria[i],{initials:g('de_i_'+i),role:g('de_r_'+i),name:g('de_n_'+i),sub:g('de_s_'+i)});
+  persist();renderDirPub();toast('Membro atualizado!','ok');
+}
+function addDir(){
+  ST.diretoria.push({id:nid(ST.diretoria),initials:'??',role:'Cargo',name:'Nome',sub:'Ano \u00b7 Faculdade'});
+  persist();renderDirEd();renderDirPub();toast('Adicionado!','ok');
+}
+function delDir(i){if(!confirm('Remover membro?'))return;ST.diretoria.splice(i,1);persist();renderDirEd();renderDirPub();toast('Removido.','ok');}
+
+function renderContactEd(){
+  var el=document.getElementById('contact-editor');if(!el)return;
+  el.innerHTML=ST.contact.map(function(c,i){
+    return mkCard(mkInp('co_l_'+i,c.label,'Label')+mkInp('co_v_'+i,c.value,'Valor'),'co'+i,'cod'+i);
+  }).join('');
+}
+function saveContact(i){
+  var g=function(id){var e=document.getElementById(id);return e?e.value.trim():'';};
+  ST.contact[i]=Object.assign({},ST.contact[i],{label:g('co_l_'+i),value:g('co_v_'+i)});
+  persist();renderDirPub();toast('Contato salvo!','ok');
+}
+function addContact(){
+  ST.contact.push({id:nid(ST.contact),label:'Canal',value:'\u2014'});
+  persist();renderContactEd();renderDirPub();toast('Campo adicionado!','ok');
+}
+function delContact(i){if(!confirm('Remover campo?'))return;ST.contact.splice(i,1);persist();renderContactEd();renderDirPub();toast('Removido.','ok');}
+
+// ─── USERS ──────────────────────────────────────────────
+function renderUsers(){
+  var el=document.getElementById('users-list');if(!el)return;
+  el.innerHTML=ST.users.map(function(u,i){
+    var delBtn=ST.users.length>1?('<button class="uc-del" data-delu="'+i+'"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg></button>'):'';
+    return '<div class="user-card">'
+      +'<div class="uc-av">'+h(u.name.charAt(0).toUpperCase())+'</div>'
+      +'<div class="uc-info"><div class="uc-name">'+h(u.name)+'</div><div class="uc-email">'+h(u.email)+'</div></div>'
+      +'<span class="uc-role">'+h(u.role)+'</span>'
+      +'<input type="password" id="upwd_'+i+'" placeholder="Nova senha" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);color:#fff;border-radius:5px;padding:5px 9px;font-size:.74rem;outline:none;width:120px"/>'
+      +'<button class="ce-save" data-chpwd="'+i+'">Alterar senha</button>'
+      +delBtn+'</div>';
+  }).join('');
+}
+function addUser(){
+  var name=document.getElementById('u-name').value.trim();
+  var email=document.getElementById('u-email').value.trim().toLowerCase();
+  var pwd=document.getElementById('u-pwd').value;
+  var role=document.getElementById('u-role').value.trim()||'Administrador';
+  if(!name||!email||pwd.length<6){toast('Preencha todos os campos (senha m\u00edn. 6 chars)','err');return;}
+  var dup=false;
+  ST.users.forEach(function(u){if(u.email.toLowerCase()===email)dup=true;});
+  if(dup){toast('E-mail j\u00e1 cadastrado.','err');return;}
+  ST.users.push({id:nid(ST.users),name:name,email:email,pwd:pwd,role:role});
+  persist();renderUsers();
+  ['u-name','u-email','u-pwd','u-role'].forEach(function(id){var e=document.getElementById(id);if(e)e.value='';});
+  toast('Usu\u00e1rio adicionado!','ok');
+}
+function delUser(i){
+  if(ST.users.length<=1){toast('Deve haver pelo menos 1 usu\u00e1rio.','err');return;}
+  if(!confirm('Remover este usu\u00e1rio?'))return;
+  ST.users.splice(i,1);persist();renderUsers();toast('Removido.','ok');
+}
+function changePwd(i){
+  var inp=document.getElementById('upwd_'+i);
+  if(!inp||inp.value.length<6){toast('Senha deve ter no m\u00ednimo 6 caracteres.','err');return;}
+  ST.users[i].pwd=inp.value;inp.value='';persist();toast('Senha alterada!','ok');
+}
+
+// ─── EVENT DELEGATION ───────────────────────────────────
+document.addEventListener('click',function(ev){
   var t=ev.target;
-
-  var go=t.closest('[data-goto]');
-  if(go){goTo(go.dataset.goto);return;}
-
+  var go=t.closest('[data-goto]');if(go){goTo(go.dataset.goto);return;}
   if(t.closest('#btn-admin')){openLogin();return;}
   if(t.closest('#btn-doLogin')){doLogin();return;}
-  if(t.id==='loginOv'){closeLogin();return;}
-  if(t.closest('#btn-closeLogin')){closeLogin();return;}
-  if(t.closest('#btn-showForgot')){closeLogin();openReset();return;}
-
-  if(t.closest('#btn-doReset')){doReset();return;}
-  if(t.id==='resetOv'){closeReset();return;}
-  if(t.closest('#btn-closeReset')){closeReset();openLogin();return;}
-
+  if(t.closest('#btn-closeLogin')||t.id==='loginOv'){closeLogin();return;}
   if(t.closest('#btn-closeAdmin')){closeAdmin();return;}
-  if(t.closest('#btn-logout')){doLogout();return;}
-  var mi2=t.closest('.amenu-item[data-apanel]');if(mi2){openPanel(mi2.dataset.apanel);return;}
-
+  if(t.closest('#btn-logout')){closeAdmin();currentUser=null;toast('Sess\u00e3o encerrada.','ok');return;}
+  var mi=t.closest('.amenu-item[data-apanel]');if(mi){openPanel(mi.dataset.apanel);return;}
   var fb=t.closest('.fbtn[data-filter]');
   if(fb){document.querySelectorAll('.fbtn').forEach(function(b){b.classList.remove('active');});fb.classList.add('active');renderLeagues(fb.dataset.filter);return;}
-
-  var lr=t.closest('.li-row[data-lid]');if(lr){toggleLiga(lr.dataset.lid);return;}
-
-  var ait=t.closest('.ait[data-aid]');if(ait){editLiga(ait.dataset.aid);return;}
+  var lr=t.closest('.li-row[data-lid]');if(lr){toggleLiga(Number(lr.dataset.lid));return;}
+  var ait=t.closest('.ait[data-aid]');if(ait){editLiga(Number(ait.dataset.aid));return;}
   if(t.closest('#btn-newLiga')){newLiga();return;}
-  if(t.closest('#btn-ligaCancel')){showWelcome();return;}
+  if(t.closest('#btn-ligaCancel')){showLigaWelcome();return;}
   var ls=t.closest('[data-lsave]');if(ls){saveLiga(ls.dataset.lsave);return;}
   var ld=t.closest('[data-ldel]');if(ld){delLiga(ld.dataset.ldel);return;}
   if(t.closest('#btn-addReq')){addReq();return;}
   var rd=t.closest('.rdel[data-rrid]');if(rd){rmReq(rd.dataset.rrid);return;}
   var fd=t.closest('.ffile-del[data-fkey]');if(fd){removeFile(fd.dataset.fkey,Number(fd.dataset.fidx));return;}
-
   if(t.closest('#btn-add-news')){addNews();return;}
-  if(t.closest('#btn-add-ev')){addAg();return;}
+  if(t.closest('#btn-add-ev')){addAgenda();return;}
   if(t.closest('#btn-add-ben')){addBen();return;}
   if(t.closest('#btn-add-comm')){addComm();return;}
   if(t.closest('#btn-add-dir')){addDir();return;}
   if(t.closest('#btn-add-contact')){addContact();return;}
   if(t.closest('#btn-add-user')){addUser();return;}
-
   var si=t.closest('[data-si]');
   if(si){
     var v=si.dataset.si;
-    if(v.indexOf('cod')===0)     {}
-    else if(v.indexOf('co')===0) saveContact(Number(v.slice(2)));
-    else if(v.indexOf('nd')===0) {}
-    else if(v.indexOf('ad')===0) {}
-    else if(v.indexOf('bd')===0) {}
-    else if(v.indexOf('cd')===0) {}
-    else if(v.indexOf('dd')===0) {}
-    else if(v.indexOf('n')===0)  saveNews(Number(v.slice(1)));
-    else if(v.indexOf('a')===0)  saveAg(Number(v.slice(1)));
-    else if(v.indexOf('b')===0)  saveBen(Number(v.slice(1)));
-    else if(v.indexOf('c')===0)  saveComm(Number(v.slice(1)));
-    else if(v.indexOf('d')===0)  saveDir(Number(v.slice(1)));
+    if(v.charAt(0)==='n')saveNews(Number(v.slice(1)));
+    else if(v.charAt(0)==='a')saveAgenda(Number(v.slice(1)));
+    else if(v.charAt(0)==='b')saveBen(Number(v.slice(1)));
+    else if(v.charAt(0)==='c')saveComm(Number(v.slice(1)));
+    else if(v.charAt(0)==='d')saveDir(Number(v.slice(1)));
+    else if(v.slice(0,2)==='co')saveContact(Number(v.slice(2)));
     return;
   }
-
   var di=t.closest('[data-di]');
   if(di){
-    var dv=di.dataset.di;
-    if(dv.indexOf('cod')===0)     delContact(Number(dv.slice(3)));
-    else if(dv.indexOf('nd')===0) delNews(Number(dv.slice(2)));
-    else if(dv.indexOf('ad')===0) delAg(Number(dv.slice(2)));
-    else if(dv.indexOf('bd')===0) delBen(Number(dv.slice(2)));
-    else if(dv.indexOf('cd')===0) delComm(Number(dv.slice(2)));
-    else if(dv.indexOf('dd')===0) delDir(Number(dv.slice(2)));
+    var v2=di.dataset.di;
+    if(v2.slice(0,2)==='nd')delNews(Number(v2.slice(2)));
+    else if(v2.slice(0,2)==='ad')delAgenda(Number(v2.slice(2)));
+    else if(v2.slice(0,2)==='bd')delBen(Number(v2.slice(2)));
+    else if(v2.slice(0,2)==='cd')delComm(Number(v2.slice(2)));
+    else if(v2.slice(0,2)==='dd')delDir(Number(v2.slice(2)));
+    else if(v2.slice(0,3)==='cod')delContact(Number(v2.slice(3)));
     return;
   }
-
-  var cp=t.closest('[data-chpwd]');if(cp){changePwd(cp.dataset.chpwd);return;}
+  var du=t.closest('[data-delu]');if(du){delUser(Number(du.dataset.delu));return;}
+  var cp=t.closest('[data-chpwd]');if(cp){changePwd(Number(cp.dataset.chpwd));return;}
 });
 
-q('lemail').addEventListener('keydown',function(ev){if(ev.key==='Enter')q('lpwd').focus();});
-q('lpwd').addEventListener('keydown',function(ev){if(ev.key==='Enter')doLogin();});
-q('reset-email').addEventListener('keydown',function(ev){if(ev.key==='Enter')doReset();});
+document.getElementById('lemail').addEventListener('keydown',function(ev){if(ev.key==='Enter')document.getElementById('lpwd').focus();});
+document.getElementById('lpwd').addEventListener('keydown',function(ev){if(ev.key==='Enter')doLogin();});
 
-// ============================================================
-//  INIT
-// ============================================================
-dbLoad();
+// ─── INIT ────────────────────────────────────────────────
+renderLeagues('all');
+renderNewsPub();
+renderAgendaPub();
+renderBenPub();
+renderCommPub();
+renderDirPub();
 
+})();
 </script>
 </body>
 </html>
